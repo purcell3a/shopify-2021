@@ -1,6 +1,6 @@
 /* ====================================== IN PROGRESS ======================================== */
 #nomination-column{
-    background: green;
+    background: white;
 }
 
 
@@ -12,6 +12,7 @@
     width:100%;
     height: auto;
 }
+
 #movie-col{
     display: flex;
     flex-wrap: wrap;
@@ -45,6 +46,7 @@ img {
     border-radius: .3rem;
 }
 
+
 .card{
     position: relative;
     display: -ms-flexbox;
@@ -59,9 +61,12 @@ img {
     border-radius: .25rem;
     margin: .5rem;
 }
+
+
 #search-row{
  background:transparent;
 }
+
 
 .form-control {
     display: block;
@@ -79,11 +84,13 @@ img {
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+
 #search-row {
     margin-top: 3rem;
     justify-content: center;
     height: 3rem;
 }
+
 
 #movie-col {
     display: flex;
@@ -91,6 +98,7 @@ img {
     max-width: 75%;
     justify-content: center;
 }
+
 /* ====================================== GLOBAL CSS ======================================== */
 
 #app{
