@@ -1,6 +1,6 @@
 """CRUD operations."""
 from flask import Flask, render_template, request, flash, session, redirect ,jsonify
-from model import db, User, connect_to_db
+from model import db, connect_to_db
 import datetime
 import random
 import logging
