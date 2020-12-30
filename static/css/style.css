@@ -1,3 +1,45 @@
+/* ====================================== IN PROGRESS ======================================== */
+#movie-row{
+    margin:.5rem;
+    margin-bottom:5rem;
+    width: 100vw;
+    width:max-content;
+    width:100%;
+    height: auto;
+}
+#movie-col{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+img {
+    vertical-align: middle;
+    border-style: groove;
+    max-height: 18rem;
+    width: 15rem;
+}
+
+.truncate-description{
+    width: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    resize: horizontal;
+    font-size: initial;
+}
+
+  .jumbotron {
+    color: white;
+    background-size: cover;
+    padding: 25%;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    margin: 0;
+    background-color: #212326;
+    border-radius: .3rem;
+}
 
 /* ====================================== GLOBAL CSS ======================================== */
 
@@ -15,4 +57,110 @@ html,body {
       overflow-x:hidden;
 }
 
+a {
+    font-family: 'Lato', sans-serif;
+    text-align: right;
+    color: white;
+    font-style: lovelo;
+    text-decoration: none;
+    background-color: transparent;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #008060;
+    border-color: #008060;
+}
 
+ /* ============================ TOPNAV.JSX ========================== */
+
+
+#topnav{
+    background-color:transparent;
+    height: 3rem;
+}
+
+
+.navbar-nav .nav-link {
+    padding-right: 1rem;
+    text-align: right;
+}
+
+
+.navbar-light .navbar-nav .nav-link {
+    color: #212529;
+}
+
+
+.navbar-light .navbar-brand {
+    color: white;
+}
+
+
+/* ============================ SIGNUP.JSX & LOGIN.JSX ==========================*/
+
+
+#loginform{
+    display: block;
+    margin-top: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+
+.login-form{
+    max-width: 40rem;
+}
+
+
+.login-signup-row{
+    position:fixed;
+    width: 100vw;
+    width: -webkit-fill-available;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#login-button-row{
+    margin: 1rem;
+    margin-left: 20%;
+}
+
+
+#login-column{
+    background-color: whitesmoke;
+    height: 100%;
+}
+
+#signup-column{
+    background-color:#212326;
+    height: 100vh;
+}
+
+
+#login-button{
+    width:94%;
+}
+
+
+#register-button-row{
+    justify-content: center;
+    margin: 1rem;
+    margin-left: 20%;
+}
+
+
+#register-button{
+    width:94%;
+}
+
+
+#signupform{
+    display: block;
+    margin-top: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
