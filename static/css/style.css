@@ -1,0 +1,18 @@
+
+/* ====================================== GLOBAL CSS ======================================== */
+
+#app{
+    min-height: 100vh;
+    min-width:100%;
+    overflow-x:hidden;
+}
+
+
+html,body {
+      background-image: linear-gradient(to bottom,  #ffffff, rbga(233, 241, 247));
+      min-height: 100vh;
+      min-width:100%;
+      overflow-x:hidden;
+}
+
+
