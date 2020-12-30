@@ -1,7 +1,7 @@
 // "use strict";
 function Homepage(props) {
 
-    const [apiKey, setApiKey] = React.useState([])
+    const [apiKey, setApiKey] = React.useState('')
     const [search, setSearch] = React.useState('disney')
     const [movies, setMovies] = React.useState([])
     const history = useHistory()
@@ -21,6 +21,38 @@ function Homepage(props) {
         .then(data => setMovies(data.Search))
     }, [search]);
 
+    function generateMovieCards(){
+        const cards = movies.map((movie,index) =>(
+
+            <Card key={index} value={index}>
+
+              <Card.Img variant="top"  src={movie.Poster}/>
+
+              <Card.Body>
+
+                  <Card.Title>
+                      <div className='truncate-description'>{movie.Title}</div>
+                  </Card.Title>
+
+                  {/* <small>{movie.Type}</small> */}
+
+                    {/* <Card.Text className='truncate-description'>
+                      {movie.Year}
+                    </Card.Text> */}
+
+                  <Button className="more-info-button"
+                          variant="primary" onClick={() => handleMoreInfoClick(movie.imdbID)}>
+                          More Info
+                  </Button>
+
+              </Card.Body>
+
+            </Card>
+
+          ))
+          return cards
+      }
+
 
     return (
 
@@ -38,7 +70,7 @@ function Homepage(props) {
 
             <Row id='movie-row'>
                 <Col sm={10} id='movie-col'>
-                   movies go here
+                   {generateMovieCards()}
                 </Col>
 
                 <Col sm={2} id="nomination-column">
