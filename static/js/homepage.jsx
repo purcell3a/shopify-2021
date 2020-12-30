@@ -31,7 +31,8 @@ function Homepage(props) {
               <Card.Body>
 
                   <Card.Title>
-                      <div className='truncate-description'>{movie.Title}</div>
+                    <i className="fa fa-star" onClick={() => handleFavoriteClick(product.product_id)}></i>
+                    <div className='truncate-description'>{movie.Title}</div>
                   </Card.Title>
 
                   {/* <small>{movie.Type}</small> */}
@@ -63,8 +64,6 @@ function Homepage(props) {
                                 placeholder="Search"
                                 className="mr-sm-2"
                                 onChange={value => setSearch(value)} />
-                    <Button variant="outline-success">Search</Button>
-
             </Row>
 
             <Row id='movie-row'>
@@ -73,7 +72,7 @@ function Homepage(props) {
                 </Col>
 
                 <Col sm={2} id="nomination-column">
-                    nominations go here
+                    <Nomination />
                 </Col>
             </Row>
 

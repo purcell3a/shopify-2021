@@ -53,6 +53,10 @@ function App() {
                     <Homepage user={user} />
                 </Route>
 
+                <Route path="/nomination">
+                    <Nomination/>
+                </Route>
+
           </Switch>
 
       </Router>
