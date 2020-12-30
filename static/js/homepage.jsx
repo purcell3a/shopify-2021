@@ -15,7 +15,7 @@ function Homepage(props) {
 
     React.useEffect(() => {
 
-        fetch(`http://www.omdbapi.com/?s=${search}&apikey=${apiKey}`)
+        fetch(`http://www.omdbapi.com/?s=${search}&apikey=e67626fa`)
         .then(resp => resp)
         .then(resp => resp.json())
         .then(data => setMovies(data.Search))
@@ -58,14 +58,13 @@ function Homepage(props) {
 
         <React.Fragment>
 
-            <Row>
-                <Col span={12} offset={6}>
+            <Row id='search-row'>
                     <FormControl type="text"
                                 placeholder="Search"
                                 className="mr-sm-2"
                                 onChange={value => setSearch(value)} />
                     <Button variant="outline-success">Search</Button>
-                </Col>
+
             </Row>
 
             <Row id='movie-row'>

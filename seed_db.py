@@ -4,17 +4,14 @@ import os
 import json
 from random import choice, randint
 from datetime import datetime
-import csv
-
-# import crud
+import crud
 from model import db, connect_to_db,User
 import server
 
-os.system('dropdb shopees')
+os.system('dropdb shoppies')
 
-os.system('createdb shoppees')
+os.system('createdb shoppies')
 
-# After that, you connect to the database and call db.create_all:
 connect_to_db(server.app)
 db.create_all()
 
@@ -29,5 +26,3 @@ new_user = User(fname = 'User',
 db.session.add(new_user)
 db.session.commit()
 
-
-# ***************************************************************************

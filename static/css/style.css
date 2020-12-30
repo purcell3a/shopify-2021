@@ -1,4 +1,9 @@
 /* ====================================== IN PROGRESS ======================================== */
+#nomination-column{
+    background: green;
+}
+
+
 #movie-row{
     margin:.5rem;
     margin-bottom:5rem;
@@ -10,7 +15,6 @@
 #movie-col{
     display: flex;
     flex-wrap: wrap;
-
 }
 
 img {
@@ -29,7 +33,7 @@ img {
     font-size: initial;
 }
 
-  .jumbotron {
+.jumbotron {
     color: white;
     background-size: cover;
     padding: 25%;
@@ -41,6 +45,52 @@ img {
     border-radius: .3rem;
 }
 
+.card{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 15rem;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin: .5rem;
+}
+#search-row{
+ background:transparent;
+}
+
+.form-control {
+    display: block;
+    width: 50%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+#search-row {
+    margin-top: 3rem;
+    justify-content: center;
+    height: 3rem;
+}
+
+#movie-col {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 75%;
+    justify-content: center;
+}
 /* ====================================== GLOBAL CSS ======================================== */
 
 #app{
@@ -51,10 +101,10 @@ img {
 
 
 html,body {
-      background-image: linear-gradient(to bottom,  #ffffff, rbga(233, 241, 247));
-      min-height: 100vh;
-      min-width:100%;
-      overflow-x:hidden;
+    background: #212326;
+    min-height: 100vh;
+    min-width:100%;
+    overflow-x:hidden;
 }
 
 a {

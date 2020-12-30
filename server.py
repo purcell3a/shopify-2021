@@ -6,8 +6,6 @@ from jinja2 import StrictUndefined
 import secrets
 
 app = Flask(__name__)
-app.secret_key = 'SECRETKEY'
-
 
 @app.route('/', defaults={'input_path': ''}) #if this matches the URL
 @app.route('/<path:input_path>') #or if this does
@@ -15,6 +13,10 @@ def show_homepage(input_path):
     """Show the application's homepage."""
     return render_template('base.html')
 
+@app.route('/api/apikey')
+def return_api():
+    '''Return the API Key'''
+    return jsonify(APIKEY)
 
 #!============================= USER ACCOUNT ROUTES =============================
 @app.route('/api/signup', methods=["POST"])

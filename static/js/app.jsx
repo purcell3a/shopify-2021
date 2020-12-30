@@ -35,7 +35,7 @@ function App() {
           <Switch>
 
                 <Route path='/login'>
-                        <Login user={user} setUser={setUser}/>
+                    <Login user={user} setUser={setUser}/>
                 </Route>
 
 
@@ -44,11 +44,11 @@ function App() {
                 </Route>
 
 
-                <Route path="/">
+                <Route path="/hompage">
                     <LandingPage user={user} />
                 </Route>
 
-                <Route path="/homepage">
+                <Route path="/">
                     <TopNav user={user} setUser={setUser}/>
                     <Homepage user={user} />
                 </Route>
