@@ -61,6 +61,8 @@ def login_user():
     else:
         return jsonify('info does not match')
 
+# ======================================== NOMINATION ROUTES =============================================
+
 
 @app.route('/api/get-user-nominations', methods=["POST"])
 def get_user_nominations():
@@ -74,6 +76,7 @@ def get_user_nominations():
 
     nomination_id_list = crud.get_user_nominations(user_id)
 
+    print('******************************************************************************************', nomination_id_list)
     if nomination_id_list:
         return jsonify(nomination_id_list)
     else:
@@ -89,17 +92,26 @@ def toggle_nominate():
     data = request.get_json()
     user_id = data['user_id']
     imdbID = data['imdbID']
+    movie_type = data['type']
+    movie_year = data['year']
+    movie_description = data['description']
+    movie_title = data['title']
+    movie_poster = data['poster']
     # ****************************** #
 
+    # CHECK HOW MANY NOMINATIONS USER HAS
+    nomination_id_list = crud.get_user_nominations(user_id)
+    if len(nomination_id_list) == 5:
+        return jsonify('User has 5 nominations')
     # CHECK IF NOMINATION EXISTS
-    nomination = crud.get_nomination(user_id, imdbID)
+    nomination = crud.get_nomination(user_id,imdbID)
 
     # IF NOMINATED THEN REMOVE
     if nomination:
         nomination_remove = crud.remove_nomination(user_id, imdbID)
         return jsonify('Nomination Removed')
     else:
-        new_nomination = crud.add_nominate(user_id, imdbID)
+        new_nomination = crud.add_nominate(user_id,imdbID,movie_type,movie_year,movie_description,movie_title,movie_poster)
         return jsonify('Nomination Added!!!!')
 
 

@@ -47,9 +47,19 @@ def validate_user(password,email):
 
 def get_user_nominations(user_id):
 
-    nomination_id_list = Nomination.query.filter(Nomination.user_id == user_id).first()
+    nomination_object_list = []
+    nomination_id_list = Nomination.query.filter(Nomination.user_id == user_id).all()
 
-    return nomination_id_list
+    for nom in nomination_id_list:
+        nomination = {'imdbID':nom.movie_id,
+                    'Type':nom.movie_type,
+                    'Year':nom.movie_year,
+                    'Description':nom.movie_description,
+                    'Title':nom.movie_title,
+                    'Poster':nom.movie_poster}
+        nomination_object_list.append(nomination)
+
+    return nomination_object_list
 
 def get_nomination(user_id, imdbID):
 
@@ -65,11 +75,16 @@ def remove_nomination(user_id, imdbID):
     db.session.commit()
 
 
-def add_nominate(user_id, imdbID):
+def add_nominate(user_id, imdbID,movie_type,movie_year,movie_title,movie_poster,movie_description='filler for now'):
 
     now = datetime.datetime.now()
     new_nomination = Nomination(user_id = user_id,
                             movie_id = imdbID,
+                            movie_type = movie_type,
+                            movie_year = movie_year,
+                            movie_description = movie_description,
+                            movie_title = movie_title,
+                            movie_poster = movie_poster,
                             date_added = now,
                             date_modified = now)
     db.session.add(new_nomination)

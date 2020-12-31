@@ -1,10 +1,16 @@
 /* ====================================== IN PROGRESS ======================================== */
-#nomination-column{
-    background: white;
+
+#nomination-div{
+    background: whitesmoke;
+    color: black;
+    box-shadow: 10px 0px 20px rgba(0,0,0,0.2);
+    border-radius: .25rem;
+    /* margin-left: 6rem; */
+    max-width: fit-content;
+    min-width: 13rem;
+    height: 25rem;
 }
- #search-input{
-     width: 50%;
- }
+}
 
 #movie-row{
     margin:.5rem;
@@ -15,10 +21,10 @@
     height: auto;
 }
 
-#movie-col{
-    display: flex;
-    flex-wrap: wrap;
+#search-input{
+    width: 50%;
 }
+
 
 img {
     vertical-align: middle;
@@ -27,14 +33,6 @@ img {
     width: 15rem;
 }
 
-.truncate-description{
-    width: inherit;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    resize: horizontal;
-    font-size: initial;
-}
 
 .jumbotron {
     color: white;
@@ -46,22 +44,6 @@ img {
     margin: 0;
     background-color: #212326;
     border-radius: .3rem;
-}
-
-
-.card{
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: 15rem;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-    margin: .5rem;
 }
 
 
@@ -99,6 +81,46 @@ img {
     flex-wrap: wrap;
     max-width: 75%;
     justify-content: center;
+}
+
+
+.white{
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #f5f5f5;
+    position: absolute;
+    top: 3%;
+    z-index: 1000;
+    top: 6%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #323a45;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+.yellow {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: gold;
+    position: absolute;
+    top: 3%;
+    z-index: 1000;
+    top: 6%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #323a45;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 /* ====================================== GLOBAL CSS ======================================== */
@@ -216,4 +238,48 @@ a {
     margin-left: auto;
     margin-right: auto;
     width: 60%;
+}
+
+/* ====================================== HOMEPAGE.JSX ======================================== */
+
+.card{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 14rem;
+    max-width: 15rem;
+    height:25rem;
+    word-wrap: break-word;
+    background-color:whitesmoke;
+    color: black;
+    box-shadow:10px 0px 20px rgba(0,0,0,0.2);
+    border-radius:20px;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .50rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+.truncate-description{
+    width: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    resize: horizontal;
+    font-size: initial;
+}
+
+.col-xs-12, .col-md-9{
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    display: flex;
 }

@@ -41,7 +41,22 @@ class Nomination(db.Model):
     user_id = db.Column(db.Integer,
                         nullable=False,
                         unique=False)
-    movie_id = db.Column(db.Integer,
+    movie_id = db.Column(db.String,
+                        nullable=False,
+                        unique=False)
+    movie_type = db.Column(db.String,
+                        nullable=False,
+                        unique=False)
+    movie_year = db.Column(db.String,
+                        nullable=False,
+                        unique=False)
+    movie_description = db.Column(db.String,
+                        nullable=False,
+                        unique=False)
+    movie_title = db.Column(db.String,
+                        nullable=False,
+                        unique=False)
+    movie_poster = db.Column(db.String,
                         nullable=False,
                         unique=False)
     date_added = db.Column(db.DateTime,nullable=False)
