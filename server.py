@@ -74,7 +74,10 @@ def get_user_nominations():
 
     nomination_id_list = crud.get_user_nominations(user_id)
 
-    return jsonify(nomination_id_list)
+    if nomination_id_list:
+        return jsonify(nomination_id_list)
+    else:
+        return jsonify('no nominations')
 
 
 @app.route('/api/toggle-nominate', methods=["POST"])

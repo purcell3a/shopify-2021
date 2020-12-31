@@ -17,7 +17,7 @@ function Login(props) {
       if (data !== 'info does not match'){
         props.setUser(data)
         localStorage.setItem('user',JSON.stringify(data));
-        history.push('/');
+        history.push('/homepage');
       }else{
         alert('Invalid Username or Password')
       }
@@ -60,15 +60,11 @@ function Login(props) {
                                   onChange={handlePasswordChange}></Form.Control>
                   </Form.Group>
 
-                  <Row id='login-button-row'>
-
                       <Button id='login-button'
                               variant="primary"
                               type="submit">
                         Login
                       </Button>
-
-                  </Row>
 
                 </Form>
 

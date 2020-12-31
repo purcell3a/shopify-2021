@@ -1,14 +1,15 @@
 function Nomination(props) {
-    console.log('props',props.user)
+
     const [nominations, setNominations] = React.useState([])
 
-    // React.useEffect(() => {
-    //     let data = {'user_id' : props.user.id}
-    //     fetch('/api/user-nominations' ,
-    //     {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
-    //     .then(response => response.json())
-    //     .then(data => setNominations(data))
-    //   }, []);
+    React.useEffect(() => {
+        console.log('useeffect running')
+        let data = {'user_id' : 1}
+        fetch('/api/get-user-nominations' ,
+        {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
+        .then(response => response.json())
+        .then(data => setNominations(data))
+      }, []);
 
     // function get_user_nominations(){
     //     let data = {'user_id' : props.user.id}
@@ -22,7 +23,7 @@ function Nomination(props) {
     return (
   
         <React.Fragment>
-            <div>this is the nominations</div>
+            <div>{nominations}</div>
   
         </React.Fragment>
     );

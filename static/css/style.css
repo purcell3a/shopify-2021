@@ -2,7 +2,9 @@
 #nomination-column{
     background: white;
 }
-
+ #search-input{
+     width: 50%;
+ }
 
 #movie-row{
     margin:.5rem;
@@ -181,12 +183,6 @@ a {
 }
 
 
-#login-button-row{
-    margin: 1rem;
-    margin-left: 20%;
-}
-
-
 #login-column{
     background-color: whitesmoke;
     height: 100vh;
@@ -203,19 +199,14 @@ a {
 
 
 #login-button{
-    width:94%;
-}
-
-
-#register-button-row{
-    justify-content: center;
-    margin: 1rem;
-    margin-left: 20%;
+    width:50%;
+    margin-left:25%
 }
 
 
 #register-button{
-    width:94%;
+    width:50%;
+    margin-left:25%
 }
 
 

@@ -74,13 +74,11 @@
                             <Form.Control type="password" name="password"  placeholder="password" value={password} onChange={handlePasswordChange}></Form.Control>
                           </Form.Group>
 
-                        <Row id='register-button-row'>
                           <Button id='register-button'
                                   variant="primary"
                                   type="submit">
                                   Register
                           </Button>
-                        </Row>
 
                     </Form>
 

@@ -44,11 +44,11 @@ function App() {
                 </Route>
 
 
-                <Route path="/hompage">
+                <Route exact path="/">
                     <LandingPage user={user} />
                 </Route>
 
-                <Route path="/">
+                <Route exact path='/homepage'>
                     <TopNav user={user} setUser={setUser}/>
                     <Homepage user={user} />
                 </Route>

@@ -3,10 +3,6 @@ function LandingPage(props) {
 
     const history = useHistory()
 
-    function handleClick(){
-        history.push({pathname:'/signup'});
-      };
-
     return (
 
         <React.Fragment>
@@ -19,7 +15,7 @@ function LandingPage(props) {
             </p>
             <p>
                 <Button className="login-button"
-                        variant="primary" onClick={() => handleClick()}>
+                        variant="primary" onClick={() =>  history.push({pathname:'/signup'})}>
                         Login | Signup
                 </Button>
             </p>

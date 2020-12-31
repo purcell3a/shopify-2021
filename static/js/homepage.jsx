@@ -71,7 +71,8 @@ function Homepage(props) {
         <React.Fragment>
 
             <Row id='search-row'>
-                    <FormControl type="text"
+                    <FormControl id='search-input'
+                                type="text"
                                 placeholder="Search"
                                 className="mr-sm-2"
                                 onChange={value => setSearch(value)} />
@@ -89,7 +90,7 @@ function Homepage(props) {
                 </Col>
 
                 <Col sm={2} id="nomination-column">
-                    <Nomination />
+                    <Nomination user={props.user}/>
                 </Col>
             </Row>
 
