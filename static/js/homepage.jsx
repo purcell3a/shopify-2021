@@ -11,15 +11,26 @@ function Homepage(props) {
         .then(resp => resp)
         .then(resp => resp.json())
         .then(data => setApiKey(data))
-    })
+        apiCall();
+    },[])
 
-    React.useEffect(() => {
-
+    function apiCall(){
         fetch(`http://www.omdbapi.com/?s=${search}&apikey=e67626fa`)
         .then(resp => resp)
         .then(resp => resp.json())
         .then(data => setMovies(data.Search))
-    }, [search]);
+    }
+
+    function handleStarClick(imdbID){
+        let user_id = props.user? props.user.id:alert('Please Log In To Nominate')
+        let data = {'imdbID':imdbID,'user_id':user_id}
+        fetch('/api/toggle-nominate',{method: "POST",  body: JSON.stringify(data),  headers: {
+          'Content-Type': 'application/json'}} )
+        .then(response => response.json())
+        .then(data => {console.log(data)
+          apiCall()});
+    }
+
 
     function generateMovieCards(){
         const cards = movies.map((movie,index) =>(
@@ -31,7 +42,7 @@ function Homepage(props) {
               <Card.Body>
 
                   <Card.Title>
-                    <i className="fa fa-star" onClick={() => handleFavoriteClick(product.product_id)}></i>
+                    <i className="fa fa-star" onClick={() => handleStarClick(movie.imdbID)}></i>
                     <div className='truncate-description'>{movie.Title}</div>
                   </Card.Title>
 
@@ -41,8 +52,8 @@ function Homepage(props) {
                       {movie.Year}
                     </Card.Text> */}
 
-                  <Button className="more-info-button"
-                          variant="primary" onClick={() => handleMoreInfoClick(movie.imdbID)}>
+                  <Button
+                          variant="primary" onClick={() => apiCall()}>
                           More Info
                   </Button>
 
@@ -64,6 +75,12 @@ function Homepage(props) {
                                 placeholder="Search"
                                 className="mr-sm-2"
                                 onChange={value => setSearch(value)} />
+                    
+                    <Button className="more-info-button"
+                          variant="primary" onClick={() => handleSearchClick()}>
+                          Search
+                  </Button>
+
             </Row>
 
             <Row id='movie-row'>

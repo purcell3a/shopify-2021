@@ -62,6 +62,31 @@ def login_user():
         return jsonify('info does not match')
 
 
+@app.route('/api/toggle-nominate', methods=["POST"])
+def toggle_nominate():
+    '''toggle movie nomination status'''
+
+     #  GET DATA
+    # ****************************** #
+    data = request.get_json()
+    user_id = data['user_id']
+    imdbID = data['imdbID']
+    # ****************************** #
+
+    # CHECK IF NOMINATION EXISTS
+    nomination = crud.get_nomination(user_id, imdbID)
+
+    # IF NOMINATED THEN REMOVE
+    if nomination:
+        nomination_remove = crud.remove_nomination(user_id, imdbID)
+        return jsonify('Nomination Removed')
+    else:
+        new_nomination = crud.add_nominate(user_id, imdbID)
+        return jsonify('Nomination Added!!!!')
+
+
+
+
 
 if __name__ == '__main__':
     connect_to_db(app)
