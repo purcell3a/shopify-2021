@@ -45,6 +45,12 @@ def validate_user(password,email):
 
 # ======================================== NOMINATION ROUTES =============================================
 
+def get_user_nominations(user_id):
+
+    nomination_id_list = Nomination.query.filter(Nomination.user_id == user_id).first()
+
+    return nomination_id_list
+
 def get_nomination(user_id, imdbID):
 
     nomination = Nomination.query.filter(Nomination.user_id == user_id, Nomination.movie_id == imdbID).first()

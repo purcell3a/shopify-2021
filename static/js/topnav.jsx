@@ -1,8 +1,5 @@
 "use strict";
-
-
-// TODO
-// ! Search OMDB and display the results (movies only)
+// ! do we want the search bar in the topnav? 
 
 function TopNav(props){
 

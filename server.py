@@ -62,6 +62,21 @@ def login_user():
         return jsonify('info does not match')
 
 
+@app.route('/api/get-user-nominations', methods=["POST"])
+def get_user_nominations():
+    ''' get user nominations'''
+
+    #  GET DATA
+    # ****************************** #
+    data = request.get_json()
+    user_id = data['user_id']
+    # ****************************** #
+
+    nomination_id_list = crud.get_user_nominations(user_id)
+
+    return jsonify(nomination_id_list)
+
+
 @app.route('/api/toggle-nominate', methods=["POST"])
 def toggle_nominate():
     '''toggle movie nomination status'''

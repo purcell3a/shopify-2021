@@ -70,7 +70,7 @@ img {
 
 .form-control {
     display: block;
-    width: 50%;
+    width: 100%;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
     font-size: 1rem;
@@ -145,7 +145,7 @@ a {
 
 
 .navbar-light .navbar-nav .nav-link {
-    color: #212529;
+    color: white;
 }
 
 
@@ -189,12 +189,16 @@ a {
 
 #login-column{
     background-color: whitesmoke;
-    height: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
 }
 
 #signup-column{
     background-color:#212326;
     height: 100vh;
+    align-items: center;
+    justify-content: center;
 }
 
 

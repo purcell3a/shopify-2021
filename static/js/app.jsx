@@ -27,7 +27,7 @@ function App() {
       const currentuser = JSON.parse(localStorage.getItem('user'));
       setUser(currentuser)
     },[]);
-
+    console.log('user',user)
 
     return (
       <Router>
@@ -54,7 +54,7 @@ function App() {
                 </Route>
 
                 <Route path="/nomination">
-                    <Nomination/>
+                    <Nomination user={user} />
                 </Route>
 
           </Switch>
