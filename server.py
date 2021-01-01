@@ -4,8 +4,10 @@ from model import connect_to_db, db, User
 import crud
 from jinja2 import StrictUndefined
 import secrets
+import os
 
 app = Flask(__name__)
+
 
 @app.route('/', defaults={'input_path': ''}) #if this matches the URL
 @app.route('/<path:input_path>') #or if this does
@@ -16,7 +18,7 @@ def show_homepage(input_path):
 @app.route('/api/apikey')
 def return_api():
     '''Return the API Key'''
-    return jsonify(APIKEY)
+    return jsonify(os.environ['APIKEY'])
 
 #!============================= USER ACCOUNT ROUTES =============================
 @app.route('/api/signup', methods=["POST"])

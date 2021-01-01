@@ -1,25 +1,17 @@
 // "use strict";
 function Homepage(props) {
 
-    const [apiKey, setApiKey] = React.useState('')
     const [search, setSearch] = React.useState('disney')
     const [movies, setMovies] = React.useState([])
     const history = useHistory()
 
     React.useEffect(() => {
-        fetch('/api/apikey')
-        .then(resp => resp)
-        .then(resp => resp.json())
-        .then(data => setApiKey(data))
-        apiCall();
-    },[])
-
-    function apiCall(){
         fetch(`http://www.omdbapi.com/?s=${search}&apikey=e67626fa`)
         .then(resp => resp)
         .then(resp => resp.json())
         .then(data => setMovies(data.Search))
-    }
+    },[search])
+
 
     function handleStarClick(imdbID,type,year,title,poster ){
         let user_id = props.user? props.user.id:alert('Please Log In To Nominate')
@@ -75,7 +67,7 @@ function Homepage(props) {
                                 className="mr-sm-2"
                                 onChange={value => setSearch(value)} />
 
-                    <Button className="more-info-button"
+                    <Button id='search-button'
                           variant="primary" onClick={() => handleSearchClick()}>
                           Search
                   </Button>
