@@ -64,13 +64,12 @@ function Homepage(props) {
               <Card.Body>
 
                   <Card.Title>
-                    <i className="white fa fa-star" onClick={() => handleStarClick(movie.imdbID,movie.Year,movie.Title,movie.Poster)}></i>
                     <div className='truncate-description'>{movie.Title}</div>
                     <h6><small>{movie.Year}</small></h6>
                   </Card.Title>
-
+                    {/* if nominated change button text and color  */}
                   <Button
-                          variant="primary" onClick={() => movieModal()}>
+                          variant="primary" onClick={() => handleStarClick(movie.imdbID,movie.Year,movie.Title,movie.Poster)}>
                           Nominate
                   </Button>
 
