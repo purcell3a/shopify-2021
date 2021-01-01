@@ -42,7 +42,7 @@
     justify-content: center;
     max-width: 80%;
     min-width: 71rem;
-    margin: max(3rem,10%);
+    margin: auto;
     margin-top:1rem;
     border-radius: 1rem;
     background: linear-gradient(45deg, transparent, #00000063);

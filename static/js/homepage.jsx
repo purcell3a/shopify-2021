@@ -66,9 +66,9 @@ function Homepage(props) {
                   <Card.Title>
                     <i className="white fa fa-star" onClick={() => handleStarClick(movie.imdbID,movie.Year,movie.Title,movie.Poster)}></i>
                     <div className='truncate-description'>{movie.Title}</div>
+                    <h6><small>{movie.Year}</small></h6>
                   </Card.Title>
 
-                    <span>{movie.Year}</span>
                   <Button
                           variant="primary" onClick={() => movieModal()}>
                           Nominate
