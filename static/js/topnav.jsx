@@ -23,8 +23,10 @@ function TopNav(props){
         id='topnav'>
 
 
+
              <Navbar.Brand>
-                 <Link to='/'>
+                 <Link to='/'
+                    id='shoppies'>
                     Shoppies
                 </Link>
             </Navbar.Brand>

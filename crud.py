@@ -75,14 +75,12 @@ def remove_nomination(user_id, imdbID):
     db.session.commit()
 
 
-def add_nominate(user_id, imdbID,movie_type,movie_year,movie_title,movie_poster,movie_description='filler for now'):
+def add_nominate(user_id, imdbID,movie_year,movie_title,movie_poster):
 
     now = datetime.datetime.now()
     new_nomination = Nomination(user_id = user_id,
                             movie_id = imdbID,
-                            movie_type = movie_type,
                             movie_year = movie_year,
-                            movie_description = movie_description,
                             movie_title = movie_title,
                             movie_poster = movie_poster,
                             date_added = now,

@@ -29,20 +29,12 @@ const { useHistory, useParams, Redirect, Switch, Prompt, Link, Route } = ReactRo
 
 function App() {
 
-    const [apiKey, setApiKey] = React.useState('')
     const [user, setUser] = React.useState(undefined)
 
     React.useEffect(() => {
       const currentuser = JSON.parse(localStorage.getItem('user'));
       setUser(currentuser)
     },[]);
-
-    React.useEffect(() => {
-        fetch('/api/apikey')
-        .then(resp => resp)
-        .then(resp => resp.json())
-        .then(data => setApiKey(data))
-    },[])
 
     return (
       <Router>
@@ -69,7 +61,7 @@ function App() {
                 </Route>
 
                 <Route path="/nomination">
-                    <Nomination user={user} apiKey={apiKey}/>
+                    <Nomination user={user}/>
                 </Route>
 
           </Switch>

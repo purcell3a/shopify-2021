@@ -9,18 +9,14 @@ function LandingPage(props) {
 
 
             <Jumbotron fluid>
-            <h1>Welcome to Angela Purcell's Shopify 2021 Application!</h1>
+            <h1>Welcome to Shoppies 2021 Movie Awards!</h1>
+            <h5>Login to Nominate your favorites.</h5>
 
 
             <p>
                 <Button className="login-button"
                         variant="primary" onClick={() =>  history.push({pathname:'/signup'})}>
-                        Front-End Project
-                </Button>
-
-                <Button className="login-button"
-                        variant="primary" onClick={() =>  history.push({pathname:'/signup'})}>
-                        Back-End Project
+                        Login |  Signup
                 </Button>
             </p>
             </Jumbotron>

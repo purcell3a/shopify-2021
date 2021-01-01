@@ -44,13 +44,7 @@ class Nomination(db.Model):
     movie_id = db.Column(db.String,
                         nullable=False,
                         unique=False)
-    movie_type = db.Column(db.String,
-                        nullable=False,
-                        unique=False)
     movie_year = db.Column(db.String,
-                        nullable=False,
-                        unique=False)
-    movie_description = db.Column(db.String,
                         nullable=False,
                         unique=False)
     movie_title = db.Column(db.String,

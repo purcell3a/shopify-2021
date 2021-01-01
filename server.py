@@ -94,9 +94,7 @@ def toggle_nominate():
     data = request.get_json()
     user_id = data['user_id']
     imdbID = data['imdbID']
-    movie_type = data['type']
     movie_year = data['year']
-    movie_description = data['description']
     movie_title = data['title']
     movie_poster = data['poster']
     # ****************************** #
@@ -113,7 +111,7 @@ def toggle_nominate():
         nomination_remove = crud.remove_nomination(user_id, imdbID)
         return jsonify('Nomination Removed')
     else:
-        new_nomination = crud.add_nominate(user_id,imdbID,movie_type,movie_year,movie_description,movie_title,movie_poster)
+        new_nomination = crud.add_nominate(user_id,imdbID,movie_year,movie_title,movie_poster)
         return jsonify('Nomination Added!!!!')
 
 
