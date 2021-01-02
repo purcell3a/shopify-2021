@@ -2,6 +2,7 @@
 //  ! maybe get rid of poster as well
 function Homepage(props) {
 
+    const [nominations, setNominations] = React.useState([{'Title':'looks like you have none','imdbID':'none'}])
     const [apiKey, setApiKey] = React.useState('')
     const [error, setError] = React.useState(null);
     const [loading, setLoading] = React.useState(false);
@@ -18,10 +19,12 @@ function Homepage(props) {
         .then(api_call())
     },[])
 
+    //! set T to movie so only movie are returned but now everything disapears if someone searches somethign that doesn't give a result
+
     function api_call(){
         setLoading(true);
         setError(null);
-        fetch(`http://www.omdbapi.com/?s=${search}&apikey=e67626fa`)
+        fetch(`http://www.omdbapi.com/?s=${search}&apikey=e67626fa&t=movie`)
         .then(resp => resp)
         .then(resp => resp.json())
         .then(data => {
@@ -41,13 +44,13 @@ function Homepage(props) {
     }
 
 
-    function handleStarClick(imdbID,year,title,poster ){
+    function handleStarClick(imdbID,title){
         let user_id = props.user? props.user.id:alert('Please Log In To Nominate')
-        let data = {'imdbID':imdbID,'user_id':user_id,'type':type,'year':year,'poster':poster,'title':title,'description':description}
+        let data = {'imdbID':imdbID,'user_id':user_id,'title':title}
         fetch('/api/toggle-nominate',{method: "POST",  body: JSON.stringify(data),  headers: {
           'Content-Type': 'application/json'}} )
         .then(response => response.json())
-        .then(data => {console.log(data)});
+        .then(data => {setNominations(data)});
     }
 
     function movieModal(){
@@ -69,7 +72,7 @@ function Homepage(props) {
                   </Card.Title>
                     {/* if nominated change button text and color  */}
                   <Button
-                          variant="primary" onClick={() => handleStarClick(movie.imdbID,movie.Year,movie.Title,movie.Poster)}>
+                          variant="primary" onClick={() => handleStarClick(movie.imdbID,movie.Title)}>
                           Nominate
                   </Button>
 
@@ -110,7 +113,7 @@ function Homepage(props) {
 
 
             <Col xs={6} md={3}>
-                <Nomination user={props.user}/>
+                <Nomination user={props.user} nominations={nominations}/>
             </Col>
 
             <Col xs={12} md={9}>
@@ -123,3 +126,21 @@ function Homepage(props) {
         </React.Fragment>
     );
 }
+
+{/* <Row gutter={16} type="flex" justify="center">
+{ loading &&
+    <Loader />
+}
+
+{ error !== null &&
+    <div style={{margin: '20px 0'}}>
+        <Alert message={error} type="error" />
+    </div>
+}
+
+{ data !== null && data.length > 0 && data.map((result, index) => (
+    <ColCardBox 
+        {...result} 
+    />
+))}
+</Row> */}

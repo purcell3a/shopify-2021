@@ -28,10 +28,10 @@
 }
 
 #nomination-div{
-    background: black;
-    color: white;
+    background: #8e8a8b;
+    color: #040404;
     box-shadow: 0px 0px 20px rgb(247 236 236 / 2%);
-    border-radius: 1rem;
+    border-radius: .5rem;
     max-width: fit-content;
     min-width: 13rem;
     height: 25rem;
@@ -243,7 +243,7 @@ a {
     max-width: 15rem;
     height:25rem;
     word-wrap: break-word;
-    background-color:whitesmoke;
+    background-color:#e4dcdc94;
     color: black;
     box-shadow:10px 0px 20px rgba(0,0,0,0.2);
     border-radius:20px;

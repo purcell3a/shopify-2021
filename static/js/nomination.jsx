@@ -7,8 +7,8 @@ function Nomination(props) {
         fetch('/api/get-user-nominations' ,
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())
-        .then(data => console.log(data))
-      }, []);
+        .then(data => setNominations(data))
+      }, [nominations]);
 
       function handleStarClick(imdbID){
         let user_id = props.user.id
@@ -37,9 +37,20 @@ function Nomination(props) {
     return (
 
         <React.Fragment>
+
             <div id="nomination-div">
-            {generateNominationCards()}
+
+                Your Nominations
+
+                {generateNominationCards()}
+
+                <Button
+                    variant="primary" onClick={() => handleStarClick(movie.imdbID,movie.Year,movie.Title)}>
+                    Submit Nominations
+                </Button>
+
             </div>
+
         </React.Fragment>
     );
 }
