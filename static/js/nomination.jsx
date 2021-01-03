@@ -22,9 +22,9 @@ function Nomination(props) {
 
       function handleStarClick(imdbID,title){
         let user_id = props.user.id
-        let data = {'imdbID':imdbID,'user_id':user_id,'Title':title}
-        fetch('/api/toggle-nominate',{method: "POST",  body: JSON.stringify(data),  headers: {
-          'Content-Type': 'application/json'}} )
+        let data = {'imdbID':imdbID,'user_id':user_id,'title':title}
+        fetch('/api/remove-nominate',
+        {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())
         .then(data => {console.log(data)});
     }

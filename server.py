@@ -113,7 +113,21 @@ def toggle_nominate():
         new_nomination = crud.add_nominate(user_id,imdbID,movie_title)
         return jsonify('Last Nomination!')
 
+@app.route('/api/remove-nominate', methods=["POST"])
+def remove_nominate():
+    '''REMOVE MOVIE FROM NOMINATIONS'''
 
+    #  GET DATA
+    # ****************************** #
+    data = request.get_json()
+    user_id = data['user_id']
+    imdbID = data['imdbID']
+    movie_title = data['title']
+    # ****************************** #
+
+    #  REMOVE NOMINATION
+    nomination_remove = crud.remove_nomination(user_id, imdbID)
+    return jsonify('Nomination Removed')
 
 
 if __name__ == '__main__':

@@ -3,7 +3,7 @@
 
 // * Search OMDB and display the results (movies only)
 
-// ! TODO Add a movie from the search results to our nomination list
+// *  Add a movie from the search results to our nomination list
 
 // * View the list of films already nominated
 
@@ -19,7 +19,7 @@
 
 // ! TODO If a search result has already been nominated, disable its nominate button.
 
-// ! TODO Display a banner when the user has 5 nominations.
+// * TODO Display a banner when the user has 5 nominations.
 
 
 
