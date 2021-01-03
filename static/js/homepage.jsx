@@ -10,6 +10,7 @@ function Homepage(props) {
     const [movies, setMovies] = React.useState([])
     const [showAlert, setShowAlert] = React.useState(false);
     const [nominationLimitModal, setNominationLimitModal] = React.useState(false);
+    const [lastNominationModal, setLastNominationModal] = React.useState(false);
     const [hover, setHover] = React.useState(false);
     const history = useHistory()
 
@@ -56,6 +57,10 @@ function Homepage(props) {
         .then(data => {
             if (data === 'User has 5 nominations'){
                 setNominationLimitModal(true)
+            }
+            else if (data ==='Last Nomination!'){
+                setNominations(data)
+                setLastNominationModal(true)
             }
             else{
                 setNominations(data)
@@ -115,6 +120,14 @@ function Homepage(props) {
                     onHide={() => setNominationLimitModal(false)}
                 />
 
+            )}
+
+            {lastNominationModal &&(
+
+                <LastNominationModal
+                show={lastNominationModal}
+                onHide={() => setLastNominationModal(false)}
+            />
             )}
 
             <Row id='search-row'>

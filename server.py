@@ -106,10 +106,12 @@ def toggle_nominate():
     if imdbID in nomination_id_list:
         nomination_remove = crud.remove_nomination(user_id, imdbID)
         return jsonify('Nomination Removed')
-    else:
+    elif len(nomination_id_list) < 4:
         new_nomination = crud.add_nominate(user_id,imdbID,movie_title)
         return jsonify('Nomination Added!!!!')
-
+    elif len(nomination_id_list) == 4:
+        new_nomination = crud.add_nominate(user_id,imdbID,movie_title)
+        return jsonify('Last Nomination!')
 
 
 
