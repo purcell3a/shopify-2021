@@ -8,6 +8,9 @@ function Homepage(props) {
     const [loading, setLoading] = React.useState(false);
     const [search, setSearch] = React.useState('Batman')
     const [movies, setMovies] = React.useState([])
+    const [showAlert, setShowAlert] = React.useState(false);
+    const [nominationLimitModal, setNominationLimitModal] = React.useState(false);
+    const [hover, setHover] = React.useState(false);
     const history = useHistory()
 
 
@@ -44,37 +47,48 @@ function Homepage(props) {
     }
 
 
-    function handleStarClick(imdbID,title){
+    function nominate(imdbID,title){
         let user_id = props.user? props.user.id:alert('Please Log In To Nominate')
         let data = {'imdbID':imdbID,'user_id':user_id,'title':title}
         fetch('/api/toggle-nominate',{method: "POST",  body: JSON.stringify(data),  headers: {
           'Content-Type': 'application/json'}} )
         .then(response => response.json())
-        .then(data => {setNominations(data)});
-    }
-
-    function movieModal(){
-        console.log('this is not finished')
+        .then(data => {
+            if (data === 'User has 5 nominations'){
+                setNominationLimitModal(true)
+            }
+            else{
+                setNominations(data)
+            }
+        });
     }
 
     function generateMovieCards(){
         const cards = movies.map((movie,index) =>(
 
-            <Card key={movie.Title + index} value={index}>
+            <Card   key={movie.Title + index} value={index}
+                    onMouseEnter={() => setHover(true)}
+                    onMouseLeave={() => setHover(false)}
+            >
 
-              <Card.Img variant="top"  src={movie.Poster}/>
+                <Card.Img   variant="top"
+                            src={movie.Poster}
+                />
 
-              <Card.Body>
+                <Card.Body>
 
-                  <Card.Title>
+                <Card.Title>
                     <div className='truncate-description'>{movie.Title}</div>
                     <h6><small>{movie.Year}</small></h6>
-                  </Card.Title>
-                    {/* if nominated change button text and color  */}
-                  <Button
-                          variant="primary" onClick={() => handleStarClick(movie.imdbID,movie.Title)}>
-                          Nominate
-                  </Button>
+                </Card.Title>
+
+                {hover &&
+                        <Button
+                          variant="primary"
+                          onClick={() => nominate(movie.imdbID,movie.Title)}>
+                          nominate
+                        </Button>
+                }
 
               </Card.Body>
 
@@ -93,6 +107,15 @@ function Homepage(props) {
     return (
 
         <React.Fragment>
+
+            {nominationLimitModal &&(
+
+                <MyVerticallyCenteredModal
+                    show={nominationLimitModal}
+                    onHide={() => setNominationLimitModal(false)}
+                />
+
+            )}
 
             <Row id='search-row'>
 
@@ -113,7 +136,7 @@ function Homepage(props) {
 
 
             <Col xs={6} md={3}>
-                <Nomination user={props.user} nominations={nominations}/>
+                <Nomination user={props.user} nominations={nominations} setNominations={setNominations} setShowAlert={setShowAlert} showAlert={showAlert}/>
             </Col>
 
             <Col xs={12} md={9}>
@@ -133,14 +156,12 @@ function Homepage(props) {
 }
 
 { error !== null &&
-    <div style={{margin: '20px 0'}}>
+    <div>
         <Alert message={error} type="error" />
     </div>
 }
 
 { data !== null && data.length > 0 && data.map((result, index) => (
-    <ColCardBox 
-        {...result} 
-    />
+    {generateMovieCards()}
 ))}
 </Row> */}

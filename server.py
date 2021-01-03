@@ -88,7 +88,7 @@ def get_user_nominations():
 @app.route('/api/toggle-nominate', methods=["POST"])
 def toggle_nominate():
     '''toggle movie nomination status'''
-
+    print('******************************************************************************************','getting data')
      #  GET DATA
     # ****************************** #
     data = request.get_json()
@@ -96,16 +96,14 @@ def toggle_nominate():
     imdbID = data['imdbID']
     movie_title = data['title']
     # ****************************** #
-
+    print('******************************************************************************************','getting nominations')
     # CHECK HOW MANY NOMINATIONS USER HAS
     nomination_id_list = crud.get_user_nominations(user_id)
     if len(nomination_id_list) == 5:
         return jsonify('User has 5 nominations')
-    # CHECK IF NOMINATION EXISTS
-    nomination = crud.get_nomination(user_id,imdbID)
-
+    print('******************************************************************************************','DOES NOMINATION EXist')
     # IF NOMINATED THEN REMOVE
-    if nomination:
+    if imdbID in nomination_id_list:
         nomination_remove = crud.remove_nomination(user_id, imdbID)
         return jsonify('Nomination Removed')
     else:

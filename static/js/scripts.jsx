@@ -26,3 +26,4 @@ const Jumbotron = ReactBootstrap.Jumbotron;
 const Badge = ReactBootstrap.Badge;
 const Alert = ReactBootstrap.Alert;
 const Carousel = ReactBootstrap.Carousel;
+const Modal = ReactBootstrap.Modal;
