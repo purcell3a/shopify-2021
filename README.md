@@ -24,3 +24,7 @@ Remove a nominee from the nomination list
 5. If a search result has already been nominated, disable its nominate button.
 
 6. Display a banner when the user has 5 nominations.
+
+# Stack
+
+This project is built with React Hooks, Python, HTML, CSS, Bootstrap, Flask, SQLAlchemy
