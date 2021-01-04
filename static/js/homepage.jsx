@@ -11,7 +11,6 @@ function Homepage(props) {
     const [showAlert, setShowAlert] = React.useState(false);
     const [nominationLimitModal, setNominationLimitModal] = React.useState(false);
     const [lastNominationModal, setLastNominationModal] = React.useState(false);
-    const [hover, setHover] = React.useState(false);
     const history = useHistory()
 
 
@@ -71,14 +70,10 @@ function Homepage(props) {
     function generateMovieCards(){
         const cards = movies.map((movie,index) =>(
 
-            <Card   key={movie.Title + index} value={index}
-                    onMouseEnter={() => setHover(true)}
-                    onMouseLeave={() => setHover(false)}
-            >
+            <Card   key={movie.Title + index} value={index}>
 
                 <Card.Img   variant="top"
-                            src={movie.Poster}
-                />
+                            src={movie.Poster}/>
 
                 <Card.Body>
 
@@ -86,6 +81,8 @@ function Homepage(props) {
                     <div className='truncate-description'>{movie.Title}</div>
                     <h6><small>{movie.Year}</small></h6>
                 </Card.Title>
+                {/* {console.log('nominations title search',nominations.hasOwnProperty(movie.Title))}
+                {console.log('movie title',movie.Title)} */}
 
                 {(!nominations.hasOwnProperty(movie.Title)) &&
                         <Button
@@ -118,8 +115,7 @@ function Homepage(props) {
 
                 <NominationLimitModal
                     show={nominationLimitModal}
-                    onHide={() => setNominationLimitModal(false)}
-                />
+                    onHide={() => setNominationLimitModal(false)}/>
 
             )}
 
@@ -127,8 +123,7 @@ function Homepage(props) {
 
                 <LastNominationModal
                 show={lastNominationModal}
-                onHide={() => setLastNominationModal(false)}
-            />
+                onHide={() => setLastNominationModal(false)}/>
             )}
 
             <Row id='search-row'>
@@ -155,13 +150,26 @@ function Homepage(props) {
                                 nominations={nominations}
                                 setNominations={setNominations}
                                 setShowAlert={setShowAlert}
-                                showAlert={showAlert}
-                    />
-                    
+                                showAlert={showAlert}/>
+
                 </Col>
 
                 <Col xs={12} md={9}>
-                    {generateMovieCards()}
+
+                    { loading &&
+                    <div>loading</div>
+                    }
+
+                    { error !== null &&
+                        <div>
+                            <Alert message={error} type="error" />
+                        </div>
+                    }
+
+                    { movies != undefined &&
+                    generateMovieCards()
+                    }
+
                 </Col>
 
             </Row>
@@ -170,19 +178,3 @@ function Homepage(props) {
         </React.Fragment>
     );
 }
-
-{/* <Row gutter={16} type="flex" justify="center">
-{ loading &&
-    <Loader />
-}
-
-{ error !== null &&
-    <div>
-        <Alert message={error} type="error" />
-    </div>
-}
-
-{ data !== null && data.length > 0 && data.map((result, index) => (
-    {generateMovieCards()}
-))}
-</Row> */}

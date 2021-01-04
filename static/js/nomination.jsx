@@ -1,16 +1,16 @@
 
 function Nomination(props) {
 
-    const [nominations, setNominations] = React.useState([{'Title':'looks like you have none','imdbID':'none'}])
     const [submitNomination, setSubmitNomination] = React.useState(false);
+    console.log(props.nominations)
 
     React.useEffect(() => {
         let data = {'user_id' : 1}
         fetch('/api/get-user-nominations' ,
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())
-        .then(data => setNominations(data))
-      }, [nominations]);
+        .then(data => props.setNominations(data))
+      }, [props.nominations]);
 
 
       function handleStarClick(imdbID,title){
@@ -24,7 +24,8 @@ function Nomination(props) {
 
 
     function generateNominations(){
-        const cards = nominations.map((movie,index) =>(
+        let nominate = props.nominations
+        const cards = nominate.map((movie,index) =>(
 
             <div    key={index}
                     value={index}>
@@ -48,14 +49,12 @@ function Nomination(props) {
     return (
 
         <React.Fragment>
-            {/* MAKE THIS ALERT SHOW ON FULL PAGE */}
 
             {submitNomination &&(
 
             <SubmitNominationModal
                 show={submitNomination}
-                onHide={() => setSubmitNomination(false)}
-            />
+                onHide={() => setSubmitNomination(false)}/>
 
             )}
 
@@ -67,7 +66,7 @@ function Nomination(props) {
                     {generateNominations()}
                 </div>
 
-                {nominations.length == 5 ?
+                {props.nominations.length == 5 ?
                     <Button
                         variant="primary"
                         id="submit-nominations-button"
