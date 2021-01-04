@@ -1,5 +1,3 @@
-//  IN PROGRESS ---
-//  MAKE NOMINATE BUTTON SHOW ON MOVIE CARD HOVER
 
 function Nomination(props) {
 

@@ -2,7 +2,7 @@
 //  ! maybe get rid of poster as well
 function Homepage(props) {
 
-    const [nominations, setNominations] = React.useState(['looks like you have none'])
+    const [nominations, setNominations] = React.useState([{'Title':'looks like you have none','imdbID':'none'}])
     const [apiKey, setApiKey] = React.useState('')
     const [error, setError] = React.useState(null);
     const [loading, setLoading] = React.useState(false);

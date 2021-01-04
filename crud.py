@@ -50,10 +50,13 @@ def get_user_nominations(user_id):
     nomination_object_list = []
     nomination_id_list = Nomination.query.filter(Nomination.user_id == user_id).all()
 
-    for nom in nomination_id_list:
-        nomination = {'imdbID':nom.movie_id,
-                    'Title':nom.movie_title}
-        nomination_object_list.append(nomination)
+    if len(nomination_id_list) == 0:
+        nomination = {'Title':'looks like you have none','imdbID':'none'}
+    else:
+        for nom in nomination_id_list:
+            nomination = {'imdbID':nom.movie_id,
+                        'Title':nom.movie_title}
+            nomination_object_list.append(nomination)
 
     return nomination_object_list
 

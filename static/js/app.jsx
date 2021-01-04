@@ -19,7 +19,7 @@
 
 // ! TODO If a search result has already been nominated, disable its nominate button.
 
-// ! Save nomination lists if the user leaves the page
+// * Save nomination lists if the user leaves the page
 
 // ! Animations for loading, adding/deleting movies, notifications
 
@@ -27,6 +27,11 @@
 
 // * TODO Display a banner when the user has 5 nominations.
 
+// ! MAKE NOMINATE BUTTON SHOW ON MOVIE CARD HOVER
+
+// ! PAGE NOT LOADING WHEN NO NOMINATIONS ARE PRESENT
+
+//  ! If USER LOGS BACK IN SHOW THEM THE MOVIES THEY HAVE NOMINATED
 
 const Router = ReactRouterDOM.BrowserRouter;
 const { useHistory, useParams, Redirect, Switch, Prompt, Link, Route } = ReactRouterDOM;

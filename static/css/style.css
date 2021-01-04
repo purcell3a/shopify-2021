@@ -14,86 +14,6 @@
  /* Extra large devices (large laptops and desktops, 1200px and up) */
  @media only screen and (min-width: 1200px) {...} 
 
-
-#remove-nomination{
-    margin-right:.5rem;
-}
-
-#nominated-titles{
-    height: 80%;
-    padding-top:20%;
-}
-
-#hover-button{
-    color: #fff;
-    background-color: #008060;
-    border-color: #008060;
-    margin-top: -27rem;
-    margin-left: 25%;
-    width: 50%;
-}
-
-#submit-nominations-button{
-    margin: auto;
-    width: -webkit-fill-available;
-}
-
-
-#choose-5-to-submit{
-    background: #007f60;
-    border-radius: .25rem;
-    color: white;
-    text-align: center;
-}
-
-#nominations-title{
-    color: black;
-    font-family: ShopifySans, Helvetica, Arial, Lucida Grande, sans-serif;
-    text-align: center;
-    margin-left: 10%;
-    font-size: 1.2rem;
-    font-style: italic;
-    font-weight: 600;
-}
-
-#nomination-div{
-    padding: 1rem;
-    background: #fbf7ed;
-    color: #040404;
-    box-shadow: 0px 0px 20px rgb(247 236 236 / 2%);
-    border-radius: .5rem;
-    max-width: fit-content;
-    min-width: 13rem;
-    height: 23rem;
-}
-
-
-#movie-row{
-    justify-content: center;
-    max-width: 80%;
-    min-width: 71rem;
-    margin: auto;
-    margin-top:1rem;
-    border-radius: 1rem;
-    background: linear-gradient(45deg, transparent, #00000063);
-    padding: 2rem;
-    box-shadow:0px 10px 20px #007f60;
-
-}
-
-#search-input{
-    width: 50vw;
-    margin: auto;
-    height: 2rem;
-    background:#fbf7ed;
-}
-
-
-#search-row{
- background:transparent;
-}
-
-
 .form-control {
     display: block;
     width: 100%;
@@ -108,21 +28,6 @@
     border: 1px solid #ced4da;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-
-#search-row {
-    margin-top: 3rem;
-    justify-content: center;
-    height: 3rem;
-}
-
-
-#movie-col {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 75%;
-    justify-content: center;
 }
 
 
@@ -142,12 +47,14 @@ html,body {
     overflow-x:hidden;
 }
 
+
 img {
     vertical-align: middle;
     border-style: groove;
     max-height: 18rem;
     width: 15rem;
 }
+
 
 a {
     font-family: 'Lato', sans-serif;
@@ -157,11 +64,14 @@ a {
     text-decoration: none;
     background-color: transparent;
 }
+
+
 .btn-primary {
     color: #fff;
     background-color: #008060;
     border-color: #008060;
 }
+
 
  /* ============================ TOPNAV.JSX ========================== */
 
@@ -203,6 +113,176 @@ a {
     color: white;
 }
 
+
+/* ====================================== NOMINATION.JSX ======================================== */
+
+#choose-5-to-submit{
+    background: #007f60;
+    border-radius: .25rem;
+    color: white;
+    padding: .5rem;
+    text-align: center;
+    height: 2.5rem;
+}
+
+#submit-nominations-button{
+    margin: auto;
+    width: -webkit-fill-available;
+}
+
+
+#nominations-title{
+    color: black;
+    font-family: ShopifySans, Helvetica, Arial, Lucida Grande, sans-serif;
+    text-align: center;
+    margin-left: 10%;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 600;
+}
+
+
+#nomination-div{
+    padding: 1rem;
+    background: #fbf7ed;
+    color: #040404;
+    box-shadow: 0px 0px 20px rgb(247 236 236 / 2%);
+    border-radius: .5rem;
+    max-width: fit-content;
+    min-width: 13rem;
+    height: 23rem;
+}
+
+#remove-nomination{
+    margin-right:.5rem;
+}
+
+
+#nominated-titles{
+    height: 80%;
+    padding-top:20%;
+}
+
+
+/* ====================================== HOMEPAGE.JSX ======================================== */
+
+.card{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 14rem;
+    max-width: 15rem;
+    height:23rem;
+    word-wrap: break-word;
+    background-color:#fbf7ed;
+    color: black;
+    box-shadow:10px 0px 20px rgba(0,0,0,0.2);
+    border-radius:20px;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .50rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    opacity: 0.8;
+    box-shadow:0px 15px 26px rgb(149, 191, 71);
+    cursor: pointer;
+}
+
+.card:hover #hover-button{
+    display:block;
+
+}
+
+.truncate-description{
+    width: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: initial;
+}
+
+.col-xs-12, .col-md-9{
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+
+#hover-button{
+    display:none;
+    color: #fff;
+    background-color: #008060;
+    border-color: #008060;
+    margin-top: -14rem;
+    margin-left: 25%;
+    width: 50%;
+}
+
+
+#movie-row{
+    justify-content: center;
+    max-width: 80%;
+    min-width: 71rem;
+    margin: auto;
+    margin-top:1rem;
+    border-radius: 1rem;
+    background: linear-gradient(45deg, transparent, #00000063);
+    padding: 2rem;
+    box-shadow:0px 10px 20px #007f60;
+
+}
+
+#search-input{
+    width: 50vw;
+    margin: auto;
+    height: 2rem;
+    background:#fbf7ed;
+}
+
+
+#search-row{
+ background:transparent;
+}
+
+
+#search-row {
+    margin-top: 3rem;
+    justify-content: center;
+    height: 3rem;
+}
+
+
+#movie-col {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 75%;
+    justify-content: center;
+}
+
+
+/* ====================================== LANDINGPAGE.JSX ======================================== */
+
+.jumbotron {
+    color: #fbf7ed;
+    background-size: cover;
+    padding: 25%;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    margin: 0;
+    background-color: #212326;
+    border-radius: .3rem;
+}
 
 /* ============================ SIGNUP.JSX & LOGIN.JSX ==========================*/
 
@@ -264,65 +344,4 @@ a {
     margin-left: auto;
     margin-right: auto;
     width: 60%;
-}
-
-/* ====================================== HOMEPAGE.JSX ======================================== */
-
-.card{
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 14rem;
-    max-width: 15rem;
-    height:23rem;
-    word-wrap: break-word;
-    background-color:#fbf7ed;
-    color: black;
-    box-shadow:10px 0px 20px rgba(0,0,0,0.2);
-    border-radius:20px;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .50rem;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
-    margin-top: 0;
-}
-
-.card:hover{
-    opacity: 60%;
-    box-shadow:0rem 0rem .5rem .5rem rgb(149, 191, 71);
-}
-
-
-.truncate-description{
-    width: inherit;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: initial;
-}
-
-.col-xs-12, .col-md-9{
-    position: relative;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    display: flex;
-}
-
-/* ====================================== LANDINGPAGE.JSX ======================================== */
-
-.jumbotron {
-    color: #fbf7ed;
-    background-size: cover;
-    padding: 25%;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    margin: 0;
-    background-color: #212326;
-    border-radius: .3rem;
 }

@@ -11,7 +11,7 @@ function UserNominations(props) {
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())
         .then(data => setMovies(data))
-      }, []);
+    }, []);
 
 
     function generateMovieCards(){
@@ -33,14 +33,15 @@ function UserNominations(props) {
 
             </Card>
 
-        ))
-        return cards
-    }
+          ))
+          return cards
+      }
 
 
     return (
 
+    <Row>
         {generateMovieCards()}
-
+    </Row>
     );
 }

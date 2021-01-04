@@ -23,12 +23,14 @@ class User(db.Model):
                         unique=True)
     password = db.Column(db.String,
                         nullable=False)
+    submission_status = db.Column(db.String,
+                        nullable=False)
     date_added = db.Column(db.DateTime,nullable=False)
     date_modified = db.Column(db.DateTime,nullable=False)
 
     def __repr__(self):
         return (f'<User user_id={self.user_id} fname ={self.fname} lname={self.lname} '
-                f'email={self.email} password={self.password} date_added={self.date_added} date_modified={self.date_modified}>')
+                f'email={self.email} password={self.password} submission_status={submission_status} date_added={self.date_added} date_modified={self.date_modified}>')
 
 class Nomination(db.Model):
     """A user."""
