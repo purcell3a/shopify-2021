@@ -25,6 +25,19 @@ Remove a nominee from the nomination list
 
 6. Display a banner when the user has 5 nominations.
 
+# Extras
+
+ - Save nomination lists if the user leaves the page
+ - Animations for loading, adding/deleting movies, notifications
+ - Create shareable links
+
+
 # Stack
 
-This project is built with React Hooks, Python, HTML, CSS, Bootstrap, Flask, SQLAlchemy
+- React Hookks
+- Python
+- HTML
+- CSS
+- Bootstrap
+- Flask
+- SQLAlchemy
