@@ -7,10 +7,14 @@ We need a webpage that can search OMDB for movies, and allow the user to save th
 When they've selected 5 nominees they should be notified they're finished.
 
 We'd like a simple to use interface that makes it easy to:
-Search OMDB and display the results (movies only)
-Add a movie from the search results to our nomination list
-View the list of films already nominated
-Remove a nominee from the nomination list
+- Search OMDB and display the results (movies only)
+By adding 't=movie' to the end of the API url we are able to ensure only the Movie 'type' is returned. 
+
+- Add a movie from the search results to our nomination list
+
+- View the list of films already nominated
+
+- Remove a nominee from the nomination list
 
 # Technical requirements
 1. Search results should come from OMDB's API (free API key: http://www.omdbapi.com/apikey.aspx).
