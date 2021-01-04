@@ -37,6 +37,8 @@
     margin: auto;
     width: -webkit-fill-available;
 }
+
+
 #choose-5-to-submit{
     background: #007f60;
     border-radius: .25rem;
@@ -290,7 +292,7 @@ a {
 
 .card:hover{
     opacity: 60%;
-    background:red;
+    box-shadow:0rem 0rem .5rem .5rem rgb(149, 191, 71);
 }
 
 
