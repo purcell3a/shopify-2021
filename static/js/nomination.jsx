@@ -1,15 +1,10 @@
 //  IN PROGRESS ---
-//  MAKE ALERT SHOW ON FULL PAGE
 //  MAKE NOMINATE BUTTON SHOW ON MOVIE CARD HOVER
-//  ALLOW USERS TO REMOVE NOMINATIONS
-//  SHOW ALERT WHEN USERS HAVE HIT 5 NOMINATIONS
 
 function Nomination(props) {
 
     const [nominations, setNominations] = React.useState([{'Title':'looks like you have none','imdbID':'none'}])
-    const [showAlert, setShowAlert] = React.useState(false);
-
-
+    const [submitNomination, setSubmitNomination] = React.useState(false);
 
     React.useEffect(() => {
         let data = {'user_id' : 1}
@@ -30,13 +25,20 @@ function Nomination(props) {
     }
 
 
-    function generateNominationCards(){
+    function generateNominations(){
         const cards = nominations.map((movie,index) =>(
 
-            <div key={index} value={index}>
+            <div    key={index}
+                    value={index}>
 
-                <i className="white fa fa-star" onClick={() => handleStarClick(movie.imdbID, movie.Title)}></i>
-                <span className='truncate-description'>{movie.Title}</span>
+                <p className='truncate-description'>
+
+                    <i  className="fa fa-times-circle"
+                        id="remove-nomination"
+                        onClick={() => handleStarClick(movie.imdbID, movie.Title)}></i>
+
+                    {movie.Title}
+                </p>
 
             </div>
 
@@ -50,25 +52,35 @@ function Nomination(props) {
         <React.Fragment>
             {/* MAKE THIS ALERT SHOW ON FULL PAGE */}
 
-               {showAlert && (
-                <Alert variant="success">
-                    <Alert.Heading>Congrats!</Alert.Heading>
-                    <p>
-                        Your Nominations have been submit! You will now be redirected to the home page.
-                    </p>
-                </Alert>
+            {submitNomination &&(
+
+            <SubmitNominationModal
+                show={submitNomination}
+                onHide={() => setSubmitNomination(false)}
+            />
+
             )}
 
             <div id="nomination-div">
 
-                Your Nominations
+                <span id='nominations-title'>Your Nominations</span>
 
-                {generateNominationCards()}
+                <div  id="nominated-titles">
+                    {generateNominations()}
+                </div>
 
-                <Button
-                    variant="primary" onClick={() => setShowAlert(true)}>
-                    Submit Nominations
-                </Button>
+                {nominations.length == 5 ?
+                    <Button
+                        variant="primary"
+                        id="submit-nominations-button"
+                        onClick={() => setSubmitNomination(true)}>
+                        Submit Nominations
+                    </Button>
+                    :
+                    <div id="choose-5-to-submit">
+                        Choose 5 to Submit
+                    </div>
+                }
 
             </div>
 

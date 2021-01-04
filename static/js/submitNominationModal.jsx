@@ -1,4 +1,4 @@
-function NominationLimitModal(props) {
+function SubmitNominationModal(props) {
     return (
       <Modal
         {...props}
@@ -7,13 +7,14 @@ function NominationLimitModal(props) {
         centered
       >
         <Modal.Body>
-          <h4>oops!</h4>
+          <h4>Congrats!</h4>
           <p>
-            Looks like you've already nominated 5 movies!
+            Thanks for taking part in the Shoppies 2021 Movie awards!
           </p>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>return to movies</Button>
+          <Button onClick={props.onHide}>Share with Friends</Button>
+          <Button onClick={props.onHide}>Exit</Button>
         </Modal.Footer>
       </Modal>
     );

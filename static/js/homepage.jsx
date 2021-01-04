@@ -2,7 +2,7 @@
 //  ! maybe get rid of poster as well
 function Homepage(props) {
 
-    const [nominations, setNominations] = React.useState([{'Title':'looks like you have none','imdbID':'none'}])
+    const [nominations, setNominations] = React.useState(['looks like you have none'])
     const [apiKey, setApiKey] = React.useState('')
     const [error, setError] = React.useState(null);
     const [loading, setLoading] = React.useState(false);
@@ -87,11 +87,12 @@ function Homepage(props) {
                     <h6><small>{movie.Year}</small></h6>
                 </Card.Title>
 
-                {hover &&
+                {(!nominations.hasOwnProperty(movie.Title)) &&
                         <Button
-                          variant="primary"
-                          onClick={() => nominate(movie.imdbID,movie.Title)}>
-                          nominate
+                            id="hover-button"
+                            variant="primary"
+                            onClick={() => nominate(movie.imdbID,movie.Title)}>
+                            nominate
                         </Button>
                 }
 
@@ -115,7 +116,7 @@ function Homepage(props) {
 
             {nominationLimitModal &&(
 
-                <MyVerticallyCenteredModal
+                <NominationLimitModal
                     show={nominationLimitModal}
                     onHide={() => setNominationLimitModal(false)}
                 />
@@ -148,13 +149,20 @@ function Homepage(props) {
             <Row id='movie-row'>
 
 
-            <Col xs={6} md={3}>
-                <Nomination user={props.user} nominations={nominations} setNominations={setNominations} setShowAlert={setShowAlert} showAlert={showAlert}/>
-            </Col>
+                <Col xs={6} md={3}>
 
-            <Col xs={12} md={9}>
-                {generateMovieCards()}
-            </Col>
+                    <Nomination user={props.user}
+                                nominations={nominations}
+                                setNominations={setNominations}
+                                setShowAlert={setShowAlert}
+                                showAlert={showAlert}
+                    />
+                    
+                </Col>
+
+                <Col xs={12} md={9}>
+                    {generateMovieCards()}
+                </Col>
 
             </Row>
 

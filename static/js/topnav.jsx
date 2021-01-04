@@ -25,6 +25,11 @@ function TopNav(props){
 
 
              <Navbar.Brand>
+                <img id="logo"
+                    src="/static/img/macos-app-icons-shopify-png-icon-thumbnail.jpg"
+                    className="d-inline-block align-top"
+                    alt="Shopify Logo"
+                />
                  <Link to='/'
                     id='shoppies'>
                     Shoppies
@@ -38,7 +43,6 @@ function TopNav(props){
                         {props.user?'':<Nav.Link><Link to="/signup">Login | Signup</Link></Nav.Link>}
                         {props.user?
                         <NavDropdown title= {props.user.fname} id="basic-nav-dropdown">
-                                <NavDropdown.Item><Link to="/user-profile">Profile</Link></NavDropdown.Item>
                                 <NavDropdown.Item><Button onClick={handleSubmit} variant="light">Logout</Button></NavDropdown.Item>
                         </NavDropdown>:''}
                     </Nav>

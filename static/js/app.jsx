@@ -7,7 +7,7 @@
 
 // * View the list of films already nominated
 
-// ! TODO Remove a nominee from the nomination list
+// * Remove a nominee from the nomination list
 
 // *  Search results should come from OMDB's API (free API key: http://www.omdbapi.com/apikey.aspx).
 
@@ -15,13 +15,17 @@
 
 // * TODO Updates to the search terms should update the result list
 
-// ! TODO Movies in search results can be added and removed from the nomination list.
+// * TODO Movies in search results can be added and removed from the nomination list.
 
 // ! TODO If a search result has already been nominated, disable its nominate button.
 
+// ! Save nomination lists if the user leaves the page
+
+// ! Animations for loading, adding/deleting movies, notifications
+
+// ! Create shareable links
+
 // * TODO Display a banner when the user has 5 nominations.
-
-
 
 
 const Router = ReactRouterDOM.BrowserRouter;

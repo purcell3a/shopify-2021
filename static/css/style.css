@@ -13,28 +13,56 @@
  
  /* Extra large devices (large laptops and desktops, 1200px and up) */
  @media only screen and (min-width: 1200px) {...} 
- 
- 
-#search-button{
-    height:2rem;
+
+
+#remove-nomination{
+    margin-right:.5rem;
 }
 
-#shoppies{
+#nominated-titles{
+    height: 80%;
+    padding-top:20%;
+}
+
+#hover-button{
+    color: #fff;
+    background-color: #008060;
+    border-color: #008060;
+    margin-top: -27rem;
+    margin-left: 25%;
+    width: 50%;
+}
+
+#submit-nominations-button{
+    margin: auto;
+    width: -webkit-fill-available;
+}
+#choose-5-to-submit{
+    background: #007f60;
+    border-radius: .25rem;
+    color: white;
+    text-align: center;
+}
+
+#nominations-title{
+    color: black;
     font-family: ShopifySans, Helvetica, Arial, Lucida Grande, sans-serif;
-    font-size: 1em;
-    line-height: 1.5;
-    color: whitesmoke;
-    font-weight: 400;
+    text-align: center;
+    margin-left: 10%;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 600;
 }
 
 #nomination-div{
-    background: #8e8a8b;
+    padding: 1rem;
+    background: #fbf7ed;
     color: #040404;
     box-shadow: 0px 0px 20px rgb(247 236 236 / 2%);
     border-radius: .5rem;
     max-width: fit-content;
     min-width: 13rem;
-    height: 25rem;
+    height: 23rem;
 }
 
 
@@ -52,28 +80,10 @@
 }
 
 #search-input{
+    width: 50vw;
+    margin: auto;
     height: 2rem;
-}
-
-
-img {
-    vertical-align: middle;
-    border-style: groove;
-    max-height: 18rem;
-    width: 15rem;
-}
-
-
-.jumbotron {
-    color: white;
-    background-size: cover;
-    padding: 25%;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    margin: 0;
-    background-color: #212326;
-    border-radius: .3rem;
+    background:#fbf7ed;
 }
 
 
@@ -130,6 +140,13 @@ html,body {
     overflow-x:hidden;
 }
 
+img {
+    vertical-align: middle;
+    border-style: groove;
+    max-height: 18rem;
+    width: 15rem;
+}
+
 a {
     font-family: 'Lato', sans-serif;
     text-align: right;
@@ -146,6 +163,22 @@ a {
 
  /* ============================ TOPNAV.JSX ========================== */
 
+ #logo{
+    outline: none;
+    width: 2rem;
+    height: 2rem;
+    border-style: none;
+    border-radius: .5rem;
+    margin-right: .5rem;
+}
+
+#shoppies{
+    font-family: ShopifySans, Helvetica, Arial, Lucida Grande, sans-serif;
+    font-size: 1em;
+    line-height: 1.5;
+    color: #fbf7ed;
+    font-weight: 400;
+}
 
 #topnav{
     background-color:transparent;
@@ -197,7 +230,7 @@ a {
 
 
 #login-column{
-    background-color: whitesmoke;
+    background-color: #fbf7ed;
     height: 100vh;
     align-items: center;
     justify-content: center;
@@ -241,9 +274,9 @@ a {
     flex-direction: column;
     min-width: 14rem;
     max-width: 15rem;
-    height:25rem;
+    height:23rem;
     word-wrap: break-word;
-    background-color:#e4dcdc94;
+    background-color:#fbf7ed;
     color: black;
     box-shadow:10px 0px 20px rgba(0,0,0,0.2);
     border-radius:20px;
@@ -255,12 +288,17 @@ a {
     margin-top: 0;
 }
 
+.card:hover{
+    opacity: 60%;
+    background:red;
+}
+
+
 .truncate-description{
     width: inherit;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    resize: horizontal;
     font-size: initial;
 }
 
@@ -271,4 +309,18 @@ a {
     align-items: center;
     flex-wrap: wrap;
     display: flex;
+}
+
+/* ====================================== LANDINGPAGE.JSX ======================================== */
+
+.jumbotron {
+    color: #fbf7ed;
+    background-size: cover;
+    padding: 25%;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    margin: 0;
+    background-color: #212326;
+    border-radius: .3rem;
 }
