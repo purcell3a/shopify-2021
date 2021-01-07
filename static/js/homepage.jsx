@@ -1,5 +1,3 @@
-// "use strict";
-//  ! maybe get rid of poster as well
 function Homepage(props) {
 
     const [nominations, setNominations] = React.useState([{'Title':'looks like you have none','imdbID':'none'}])
@@ -12,6 +10,7 @@ function Homepage(props) {
     const [nominationLimitModal, setNominationLimitModal] = React.useState(false);
     const [lastNominationModal, setLastNominationModal] = React.useState(false);
     const history = useHistory()
+    const [nominatedTitles, setNominatedTitles] = React.useState([])
 
 
     React.useEffect(() => {
@@ -21,8 +20,6 @@ function Homepage(props) {
         .then(data => setApiKey(data))
         .then(api_call())
     },[])
-
-    //! set T to movie so only movie are returned but now everything disapears if someone searches somethign that doesn't give a result
 
     function api_call(){
         setLoading(true);
@@ -68,9 +65,10 @@ function Homepage(props) {
     }
 
     function generateMovieCards(){
+
         const cards = movies.map((movie,index) =>(
 
-            <Card   key={movie.Title + index} value={index}>
+            <Card  key={movie.Title + index} value={movie.imdbID}>
 
                 <Card.Img   variant="top"
                             src={movie.Poster}/>
@@ -81,30 +79,35 @@ function Homepage(props) {
                     <div className='truncate-description'>{movie.Title}</div>
                     <h6><small>{movie.Year}</small></h6>
                 </Card.Title>
-                {/* {console.log('nominations title search',nominations.hasOwnProperty(movie.Title))}
-                {console.log('movie title',movie.Title)} */}
 
-                {(!nominations.hasOwnProperty(movie.Title)) &&
-                        <Button
-                            id="hover-button"
-                            variant="primary"
-                            onClick={() => nominate(movie.imdbID,movie.Title)}>
-                            nominate
-                        </Button>
+                {(nominatedTitles.includes(movie.Title))?
+                    <Button
+                    id="hover-button"
+                    variant="primary">
+                    Already Nominated!
+                    </Button>
+                    :
+                    <Button
+                    id="hover-button"
+                    variant="primary"
+                    onClick={() => nominate(movie.imdbID,movie.Title)}>
+                    nominate
+                </Button>
                 }
 
               </Card.Body>
 
             </Card>
 
-          ))
-          return cards
-      }
+        ))
+        return cards
+    }
 
-      function handleSearchChange(evt){
-          setSearch(evt.target.value)
-          api_call()
-      }
+
+    function handleSearchChange(evt){
+        setSearch(evt.target.value)
+        api_call()
+    }
 
 
     return (
@@ -147,6 +150,7 @@ function Homepage(props) {
                 <Col xs={6} md={3}>
 
                     <Nomination user={props.user}
+                                setNominatedTitles={nominatedTitles}
                                 nominations={nominations}
                                 setNominations={setNominations}
                                 setShowAlert={setShowAlert}
@@ -157,7 +161,7 @@ function Homepage(props) {
                 <Col xs={12} md={9}>
 
                     { loading &&
-                    <div>loading</div>
+                        <div>loading</div>
                     }
 
                     { error !== null &&
