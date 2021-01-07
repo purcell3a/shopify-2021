@@ -1,6 +1,6 @@
 function Homepage(props) {
 
-    const [nominations, setNominations] = React.useState([{'Title':'looks like you have none','imdbID':'none'}])
+    // const [nominations, setNominations] = React.useState([{'Title':'looks like you have none','imdbID':'none'}])
     const [apiKey, setApiKey] = React.useState('')
     const [error, setError] = React.useState(null);
     const [loading, setLoading] = React.useState(false);
@@ -9,9 +9,13 @@ function Homepage(props) {
     const [showAlert, setShowAlert] = React.useState(false);
     const [nominationLimitModal, setNominationLimitModal] = React.useState(false);
     const [lastNominationModal, setLastNominationModal] = React.useState(false);
-    const history = useHistory()
-    const [nominatedTitles, setNominatedTitles] = React.useState([])
 
+    // React.useEffect(()=>{
+    //     for (var key in props.nominations){
+    //         console.log('key', key.Title)
+    //         props.setNominationTitle(nominations[key].Title)
+    //     }
+    // },[])
 
     React.useEffect(() => {
         fetch('/api/apikey')
@@ -55,11 +59,11 @@ function Homepage(props) {
                 setNominationLimitModal(true)
             }
             else if (data ==='Last Nomination!'){
-                setNominations(data)
+                props.setNominations(data)
                 setLastNominationModal(true)
             }
             else{
-                setNominations(data)
+                props.setNominations(data)
             }
         });
     }
@@ -80,20 +84,20 @@ function Homepage(props) {
                     <h6><small>{movie.Year}</small></h6>
                 </Card.Title>
 
-                {(nominatedTitles.includes(movie.Title))?
+                {/* {(nominatedTitles.includes(movie.Title))?
                     <Button
                     id="hover-button"
                     variant="primary">
                     Already Nominated!
                     </Button>
-                    :
+                    : */}
                     <Button
                     id="hover-button"
                     variant="primary"
                     onClick={() => nominate(movie.imdbID,movie.Title)}>
                     nominate
                 </Button>
-                }
+                {/* } */}
 
               </Card.Body>
 
@@ -150,9 +154,8 @@ function Homepage(props) {
                 <Col xs={6} md={3}>
 
                     <Nomination user={props.user}
-                                setNominatedTitles={nominatedTitles}
-                                nominations={nominations}
-                                setNominations={setNominations}
+                                nominations={props.nominations}
+                                setNominations={props.setNominations}
                                 setShowAlert={setShowAlert}
                                 showAlert={showAlert}/>
 

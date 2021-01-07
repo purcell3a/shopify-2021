@@ -39,6 +39,17 @@ const { useHistory, useParams, Redirect, Switch, Prompt, Link, Route } = ReactRo
 function App() {
 
     const [user, setUser] = React.useState(undefined)
+    const [nominations, setNominations] = React.useState([{'Title':'looks like you have none','imdbID':'none'}])
+
+
+    React.useEffect(() => {
+        let data = {'user_id' : 1}
+        fetch('/api/get-user-nominations' ,
+        {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
+        .then(response => response.json())
+        .then(data => setNominations(data))
+    }, []);
+
 
     React.useEffect(() => {
       const currentuser = JSON.parse(localStorage.getItem('user'));
@@ -66,11 +77,15 @@ function App() {
 
                 <Route exact path='/homepage'>
                     <TopNav user={user} setUser={setUser}/>
-                    <Homepage user={user}/>
+                    <Homepage user={user}
+                              nominations={nominations}
+                              setNominations={setNominations}/>
                 </Route>
 
                 <Route path="/nomination">
-                    <Nomination user={user}/>
+                    <Nomination user={user}
+                                nominations={nominations}
+                                setNominations={setNominations}/>
                 </Route>
 
           </Switch>

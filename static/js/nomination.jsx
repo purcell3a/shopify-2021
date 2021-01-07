@@ -1,18 +1,17 @@
 
 function Nomination(props) {
 
-    // const [nominations, setNominations] = React.useState([{'Title':'looks like you have none','imdbID':'none'}])
+    const [nominations, setNominations] = React.useState(props.nominations)
     const [submitNomination, setSubmitNomination] = React.useState(false);
-    const [triggerNominations, setTriggerNominations] = React.useState([])
-    console.log(props.nominations)
+    let noms = props.nominations
 
     React.useEffect(() => {
         let data = {'user_id' : 1}
         fetch('/api/get-user-nominations' ,
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())
-        .then(data => props.setNominations(data))
-    }, [triggerNominations]);
+        .then(data => setNominations(data))
+    }, [props.nominations]);
 
     // React.useEffect(()=>{
     //     for (var key in props.nominations){
@@ -22,22 +21,21 @@ function Nomination(props) {
     // },[])
 
 
-
     function handleStarClick(imdbID,title){
         let user_id = props.user.id
         let data = {'imdbID':imdbID,'user_id':user_id,'title':title}
         fetch('/api/remove-nominate',
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())
-        .then(data => {setTriggerNominations(data)});
+        .then(data => {props.setNominations(data)});
     }
 
 
-//  GETTING AN ERROR WITH .MAP ON EVERY MOVIE NOMINATION WHEN I USE PROPS
+//  GETTING AN ERROR WITH .MAP ON EVERY MOVIE NOMINATION WHEN I USE PROPS.NOMINATIONS
 
     function generateNominations(){
-        const noms = props.nominations
-        const cards = noms.map((movie,index) =>(
+
+        const cards = nominations.map((movie,index) =>(
 
             <div    key={movie.Title + index}
                     value={index}>
