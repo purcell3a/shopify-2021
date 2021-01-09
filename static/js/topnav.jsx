@@ -40,7 +40,7 @@ function TopNav(props){
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        {props.user?'':<Nav.Link><Link to="/signup">Login | Signup</Link></Nav.Link>}
+                        {props.user?'':<Nav.Link to="/signup">Login | Signup</Nav.Link>}
                         {props.user?
                         <NavDropdown title= {props.user.fname} id="basic-nav-dropdown">
                                 <NavDropdown.Item><Button onClick={handleSubmit} variant="light">Logout</Button></NavDropdown.Item>

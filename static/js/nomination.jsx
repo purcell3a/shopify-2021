@@ -13,13 +13,6 @@ function Nomination(props) {
         .then(data => setNominations(data))
     }, [props.nominations]);
 
-    // React.useEffect(()=>{
-    //     for (var key in props.nominations){
-    //         console.log('key', key.Title)
-    //         props.setNominationTitle(nominations[key].Title)
-    //     }
-    // },[])
-
 
     function handleStarClick(imdbID,title){
         let user_id = props.user.id
