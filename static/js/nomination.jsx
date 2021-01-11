@@ -1,19 +1,17 @@
 
-function Nomination({user, nominations,setNominations}) {
+function Nomination({user,nominations, setNominations,triggerNominations,setTriggerNominations}) {
 
     const [submitNomination, setSubmitNomination] = React.useState(false);
 
     function handleStarClick(imdbID,title){
+        setTriggerNominations(title)
         let user_id = user.id
         let data = {'imdbID':imdbID,'user_id':user_id,'title':title}
         fetch('/api/remove-nominate',
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())
-        .then(data => {setNominations(data)});
+        .then(data => {setTriggerNominations(data)});
     }
-
-
-//  GETTING AN ERROR WITH .MAP ON EVERY MOVIE NOMINATION WHEN I USE PROPS.NOMINATIONS
 
     function generateNominations(){
 

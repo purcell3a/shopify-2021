@@ -40,6 +40,7 @@ function App() {
 
     const [user, setUser] = React.useState(undefined)
     const [nominations, setNominations] = React.useState([{'Title':'looks like you have none','imdbID':'none'}])
+    const [triggerNominations, setTriggerNominations] = React.useState('')
 
 
     React.useEffect(() => {
@@ -48,7 +49,7 @@ function App() {
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())
         .then(data => setNominations(data))
-    }, []);
+    }, [triggerNominations]);
 
 
     React.useEffect(() => {
@@ -79,13 +80,17 @@ function App() {
                     <TopNav user={user} setUser={setUser}/>
                     <Homepage user={user}
                               nominations={nominations}
-                              setNominations={setNominations}/>
+                              setNominations={setNominations}
+                              setTriggerNominations={setTriggerNominations}
+                              triggerNominations={triggerNominations}/>
                 </Route>
 
                 <Route path="/nomination">
                     <Nomination user={user}
                                 nominations={nominations}
-                                setNominations={setNominations}/>
+                                setNominations={setNominations}
+                                setTriggerNominations={setTriggerNominations}
+                                triggerNominations={triggerNominations}/>
                 </Route>
 
           </Switch>

@@ -62,10 +62,10 @@
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
  #login-signup-button{
-        width: 80%;
-        margin: auto;
-        float: center;
-        background: black;
+    width: 80%;
+    margin: auto;
+    float: center;
+    background: black;
  }
 
 /* ====================================== GLOBAL CSS ======================================== */
@@ -330,7 +330,7 @@ h5{
 
 #loginform{
     display: block;
-    margin-top: 50%;
+    margin-top: 75%;
     margin-left: auto;
     margin-right: auto;
     width: 60%;
@@ -360,7 +360,7 @@ h5{
 }
 
 #signup-column{
-    background-color:#212326;
+    background-color:black;
     height: 100vh;
     align-items: center;
     justify-content: center;
@@ -381,7 +381,7 @@ h5{
 
 #signupform{
     display: block;
-    margin-top: 40%;
+    margin-top: 65%;
     margin-left: auto;
     margin-right: auto;
     width: 60%;

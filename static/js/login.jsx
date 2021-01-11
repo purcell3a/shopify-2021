@@ -1,6 +1,6 @@
 "use strict";
 
-function Login(props) {
+function Login(setUser) {
 
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
@@ -15,7 +15,7 @@ function Login(props) {
     .then(response => response.json())
     .then(data => {
       if (data !== 'info does not match'){
-        props.setUser(data)
+        setUser(data)
         localStorage.setItem('user',JSON.stringify(data));
         history.push('/homepage');
       }else{

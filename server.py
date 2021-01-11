@@ -76,9 +76,12 @@ def get_user_nominations():
     user_id = data['user_id']
     # ****************************** #
 
-    nomination_id_list = crud.get_user_nominations(user_id)
-
-    return jsonify(nomination_id_list)
+    nomination_object_list = crud.get_user_nominations(user_id)
+    print('***************************************************************************')
+    print('***************************************************************************')
+    print('***************************************************************************')
+    print(nomination_object_list)
+    return jsonify(nomination_object_list)
 
 
 @app.route('/api/toggle-nominate', methods=["POST"])
@@ -97,14 +100,9 @@ def toggle_nominate():
     nomination_id_list = crud.get_user_nominations(user_id)
     if len(nomination_id_list) == 5:
         return jsonify('User has 5 nominations')
-
-    # IF NOMINATED THEN REMOVE
-    if imdbID in nomination_id_list:
-        nomination_remove = crud.remove_nomination(user_id, imdbID)
-        return jsonify('Nomination Removed')
     elif len(nomination_id_list) < 4:
         new_nomination = crud.add_nominate(user_id,imdbID,movie_title)
-        return jsonify('Nomination Added!!!!')
+        return jsonify('nomination added')
     elif len(nomination_id_list) == 4:
         new_nomination = crud.add_nominate(user_id,imdbID,movie_title)
         return jsonify('Last Nomination!')
@@ -123,7 +121,7 @@ def remove_nominate():
 
     #  REMOVE NOMINATION
     nomination_remove = crud.remove_nomination(user_id, imdbID)
-    return jsonify('Nomination Removed')
+    return jsonify('nomination removed')
 
 
 if __name__ == '__main__':

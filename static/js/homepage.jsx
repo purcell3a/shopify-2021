@@ -1,4 +1,4 @@
-function Homepage({nominations, user, setNominations}) {
+function Homepage({nominations, user, setNominations,triggerNominations,setTriggerNominations}) {
 
     const [apiKey, setApiKey] = React.useState('')
     const [error, setError] = React.useState(null);
@@ -8,7 +8,6 @@ function Homepage({nominations, user, setNominations}) {
     const [showAlert, setShowAlert] = React.useState(false);
     const [nominationLimitModal, setNominationLimitModal] = React.useState(false);
     const [lastNominationModal, setLastNominationModal] = React.useState(false);
-
 
     React.useEffect(() => {
         fetch('/api/apikey')
@@ -43,6 +42,7 @@ function Homepage({nominations, user, setNominations}) {
 
 
     function nominate(imdbID,title){
+        setTriggerNominations(imdbID)
         let user_id = user? user.id:alert('Please Log In To Nominate')
         let data = {'imdbID':imdbID,'user_id':user_id,'title':title}
         fetch('/api/toggle-nominate',{method: "POST",  body: JSON.stringify(data),  headers: {
@@ -53,11 +53,11 @@ function Homepage({nominations, user, setNominations}) {
                 setNominationLimitModal(true)
             }
             else if (data ==='Last Nomination!'){
-                setNominations(data)
+                setTriggerNominations(data)
                 setLastNominationModal(true)
             }
             else{
-                setNominations(data)
+                setTriggerNominations(data)
             }
             generateMovieCards()
         });
@@ -65,7 +65,6 @@ function Homepage({nominations, user, setNominations}) {
 
 
     function generateMovieCards(){
-        console.log('nominations',nominations)
         const cards = movies.map((movie,index) =>(
 
             <Card  key={movie.Title + index} value={movie.imdbID}>
@@ -80,21 +79,17 @@ function Homepage({nominations, user, setNominations}) {
                     <h6><small>{movie.Year}</small></h6>
                 </Card.Title>
 
-                {/* typeof props.nominations == typeof [] */}
                 {(nominations && nominations.filter(nomination => nomination.Title === movie.Title)).length?
                     <Button
                     id="hover-button"
                     variant="primary">
-                    Already Nominated!
+                    Nominated!
                     </Button>
                     :
                     <Button
                     id="hover-button"
                     variant="primary"
-                    onClick={() =>{
-                        console.log('insideofclick',nominations)
-                        nominate(movie.imdbID,movie.Title)}
-                    }>
+                    onClick={() =>{nominate(movie.imdbID,movie.Title)}}>
                     nominate
                 </Button>
                 }
@@ -156,7 +151,9 @@ function Homepage({nominations, user, setNominations}) {
                                 nominations={nominations}
                                 setNominations={setNominations}
                                 setShowAlert={setShowAlert}
-                                showAlert={showAlert}/>
+                                showAlert={showAlert}
+                                triggerNominations={triggerNominations}
+                                setTriggerNominations={setTriggerNominations}/>
 
                 </Col>
 
