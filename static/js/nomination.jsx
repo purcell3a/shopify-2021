@@ -1,26 +1,15 @@
 
-function Nomination(props) {
+function Nomination({user, nominations,setNominations}) {
 
-    const [nominations, setNominations] = React.useState(props.nominations)
     const [submitNomination, setSubmitNomination] = React.useState(false);
-    let noms = props.nominations
-
-    React.useEffect(() => {
-        let data = {'user_id' : 1}
-        fetch('/api/get-user-nominations' ,
-        {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
-        .then(response => response.json())
-        .then(data => setNominations(data))
-    }, [props.nominations]);
-
 
     function handleStarClick(imdbID,title){
-        let user_id = props.user.id
+        let user_id = user.id
         let data = {'imdbID':imdbID,'user_id':user_id,'title':title}
         fetch('/api/remove-nominate',
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())
-        .then(data => {props.setNominations(data)});
+        .then(data => {setNominations(data)});
     }
 
 
@@ -70,7 +59,7 @@ function Nomination(props) {
                     {generateNominations()}
                 </div>
 
-                {props.nominations.length == 5 ?
+                {nominations.length == 5 ?
                     <Button
                         variant="primary"
                         id="submit-nominations-button"

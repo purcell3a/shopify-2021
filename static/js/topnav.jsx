@@ -1,14 +1,12 @@
 "use strict";
-// ! do we want the search bar in the topnav? 
-
-function TopNav(props){
+function TopNav({user, setUser}){
 
   const history = useHistory()
 
   function handleSubmit(evt){
     evt.preventDefault()
     localStorage.removeItem('user');
-    props.setUser(undefined)
+    setUser(undefined)
     console.log('logged out')
     history.push('/');
   }
@@ -40,9 +38,9 @@ function TopNav(props){
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        {props.user?'':<Nav.Link to="/signup">Login | Signup</Nav.Link>}
-                        {props.user?
-                        <NavDropdown title= {props.user.fname} id="basic-nav-dropdown">
+                        {user?'':<Nav.Link to="/signup">Login | Signup</Nav.Link>}
+                        {user?
+                        <NavDropdown title= {user.fname} id="basic-nav-dropdown">
                                 <NavDropdown.Item><Button onClick={handleSubmit} variant="light">Logout</Button></NavDropdown.Item>
                         </NavDropdown>:''}
                     </Nav>

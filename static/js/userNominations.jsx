@@ -1,12 +1,12 @@
 
 //  will show this page if user returns and has submitted nominations
 
-function UserNominations(props) {
+function UserNominations({user}) {
 
     const [movies, setMovies] = React.useState([])
 
     React.useEffect(() => {
-        let data = {'user_id' : 1}
+        let data = {'user_id' : user.id}
         fetch('/api/get-user-nominations' ,
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())

@@ -1,7 +1,5 @@
 function Homepage({nominations, user, setNominations}) {
 
-    // change props to {propname}
-
     const [apiKey, setApiKey] = React.useState('')
     const [error, setError] = React.useState(null);
     const [loading, setLoading] = React.useState(false);
@@ -19,6 +17,7 @@ function Homepage({nominations, user, setNominations}) {
         .then(data => setApiKey(data))
         .then(api_call())
     },[])
+
 
     function api_call(){
         setLoading(true);
@@ -63,6 +62,7 @@ function Homepage({nominations, user, setNominations}) {
             generateMovieCards()
         });
     }
+
 
     function generateMovieCards(){
         console.log('nominations',nominations)

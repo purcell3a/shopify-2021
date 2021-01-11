@@ -1,6 +1,6 @@
 "use strict";
 
-  function Signup(props) {
+  function Signup({setUser}) {
 
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
@@ -51,7 +51,7 @@
             <Row className="login-signup-row">
 
                 <Col id='login-column'>
-                    <Login setUser={props.setUser}/>
+                    <Login setUser={setUser}/>
                 </Col>
 
                 <Col id='signup-column'>
