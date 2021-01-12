@@ -6,9 +6,22 @@ import random
 import logging
 
 # ======================================== USER ROUTES =============================================
+
+def user_submit_status(user_id):
+
+    now = datetime.datetime.now()
+    user = User.query.get(user_id)
+
+    user.submission_status = 'true'
+    user.date_modified = now
+
+    db.session.commit()
+
+    return user
+
 def create_user(fname,lname,email,password):
     now = datetime.datetime.now()
-    new_user= User(fname=fname, lname=lname, email=email, password=password,profile_img ='static/img/stock-profile-img.png',date_added=now, date_modified= now)
+    new_user= User(fname=fname, lname=lname, email=email, password=password,submission_status='false',date_added=now, date_modified= now)
 
     db.session.add(new_user)
     db.session.commit()
@@ -22,6 +35,7 @@ def get_user_by_email(email):
             'fname' : result.fname,
             'lname' : result.lname,
             'password' : result.password,
+            'submission_status':result.submission_status,
             'user_id' : result.user_id}
 
     return user
@@ -55,7 +69,9 @@ def get_user_nominations(user_id):
     else:
         for nom in nomination_id_list:
             nomination = {'imdbID':nom.movie_id,
-                        'Title':nom.movie_title}
+                        'Title':nom.movie_title,
+                        'Poster':nom.poster,
+                        'Year':nom.year}
             nomination_object_list.append(nomination)
 
     return nomination_object_list
@@ -74,12 +90,14 @@ def remove_nomination(user_id, imdbID):
     db.session.commit()
 
 
-def add_nominate(user_id, imdbID,movie_title):
+def add_nominate(user_id, imdbID,movie_title,poster,year):
 
     now = datetime.datetime.now()
     new_nomination = Nomination(user_id = user_id,
                             movie_id = imdbID,
                             movie_title = movie_title,
+                            poster = poster,
+                            year = year,
                             date_added = now,
                             date_modified = now)
     db.session.add(new_nomination)

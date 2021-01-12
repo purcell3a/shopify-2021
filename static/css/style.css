@@ -1,72 +1,40 @@
 /* ====================================== IN PROGRESS ======================================== */
- /* Extra small devices (phones, 600px and down) */
- @media only screen and (max-width: 600px) {...}
-
- /* Small devices (portrait tablets and large phones, 600px and up) */
- @media only screen and (min-width: 600px) {...}
- 
- /* Medium devices (landscape tablets, 768px and up) */
- @media only screen and (min-width: 768px) {...}
- 
- /* Large devices (laptops/desktops, 992px and up) */
- @media only screen and (min-width: 992px) {...}
- 
- /* Extra large devices (large laptops and desktops, 1200px and up) */
- @media only screen and (min-width: 1200px) {...} 
-
-#welcome-text{
+#submission-row{
+    justify-content: center;
+    max-width: 80%;
+    min-width: 71rem;
     margin: auto;
-    margin-bottom: 1rem;
+    margin-top:1rem;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow:0px 10px 20px #007f60;
+    background: #1b1d1f;
 }
-#white-box{
+
+#user-submitted-nominations{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+
+#submission-header-box{
     text-align: center;
-    width: 90%;
-    margin: 0 auto;
+    width: 50%;
     padding: 1rem;
     min-width: max-content;
     background: #fff;
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 5px 10px #fff;
-}
-.jumbotron h1{
-    font-weight: bold;
-    background: linear-gradient(to bottom, #007f60, #59cc34);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    max-width: 350px;
-    text-transform: uppercase;
-    line-height: 1;
+    border-radius: .2rem;
+    margin-bottom: 1rem;
+    margin-top: -2rem;
 }
 
- .jumbotron{
-    height: 100vh;
-    background: linear-gradient(#007f60, #06070700);
-    display: flex;
-    justify-content: center;
-    align-items: center;
- }
-.form-control {
-    display: block;
-    width: 100%;
-    height: calc(1.5em + .75rem + 2px);
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
- #login-signup-button{
-    width: 80%;
+#thanks-for-submitting{
     margin: auto;
-    float: center;
-    background: black;
- }
+}
+
 
 /* ====================================== GLOBAL CSS ======================================== */
 
@@ -84,11 +52,11 @@ html,body {
     overflow-x:hidden;
 }
 
-
+/* ! REVISIT MAKING ALL PHOTOS SAME SIZE WITHOUT RUINING SCALE */
 img {
     vertical-align: middle;
     border-style: groove;
-    max-height: 18rem;
+    height: 18rem;
     width: 15rem;
 }
 
@@ -102,17 +70,19 @@ a {
     background-color: transparent;
 }
 
+
 h5{
     width: 80%;
     margin-left: auto;
     color:black;
 }
+
+
 .btn-primary {
     color: #fff;
     background-color: #008060;
     border-color: #008060;
 }
-
 
  /* ============================ TOPNAV.JSX ========================== */
 
@@ -125,6 +95,7 @@ h5{
     margin-right: .5rem;
 }
 
+
 #shoppies{
     font-family: ShopifySans, Helvetica, Arial, Lucida Grande, sans-serif;
     font-size: 1em;
@@ -132,6 +103,7 @@ h5{
     color: #fbf7ed;
     font-weight: 400;
 }
+
 
 #topnav{
     background-color:transparent;
@@ -166,6 +138,7 @@ h5{
     height: 2.5rem;
 }
 
+
 #submit-nominations-button{
     margin: auto;
     width: -webkit-fill-available;
@@ -189,8 +162,7 @@ h5{
     color: #040404;
     box-shadow: 0px 0px 20px rgb(247 236 236 / 2%);
     border-radius: .5rem;
-    max-width: fit-content;
-    min-width: 13rem;
+    width: 15rem;
     height: 23rem;
 }
 
@@ -229,6 +201,7 @@ h5{
     margin-top: 0;
 }
 
+
 .card:hover{
     transform: scale(1.05);
     opacity: 0.8;
@@ -236,10 +209,12 @@ h5{
     cursor: pointer;
 }
 
+
 .card:hover #hover-button{
     display:block;
 
 }
+
 
 .truncate-description{
     width: inherit;
@@ -249,6 +224,7 @@ h5{
     font-size: initial;
 }
 
+
 .col-xs-12, .col-md-9{
     position: relative;
     width: 100%;
@@ -257,7 +233,6 @@ h5{
     flex-wrap: wrap;
     display: flex;
 }
-
 
 #hover-button{
     display:none;
@@ -270,6 +245,7 @@ h5{
 }
 
 
+
 #movie-row{
     justify-content: center;
     max-width: 80%;
@@ -280,7 +256,6 @@ h5{
     background: linear-gradient(45deg, transparent, #00000063);
     padding: 2rem;
     box-shadow:0px 10px 20px #007f60;
-
 }
 
 #search-input{
@@ -312,17 +287,72 @@ h5{
 
 
 /* ====================================== LANDINGPAGE.JSX ======================================== */
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
+ #login-signup-button{
+    width: 80%;
+    margin: auto;
+    float: center;
+    background: black;
+ }
+
+.jumbotron h1{
+    font-weight: bold;
+    background: linear-gradient(to bottom, #007f60, #59cc34);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
 
 .jumbotron {
     color: #fbf7ed;
     background-size: cover;
-    padding: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100%;
     position: fixed;
     margin: 0;
-    background-color: #212326;
+    background: linear-gradient(#007f60, #06070700);
     border-radius: .3rem;
+}
+
+
+#welcome-text{
+    margin: auto;
+    margin-bottom: 1rem;
+    max-width: 350px;
+}
+
+
+#white-box{
+    text-align: center;
+    width: 90%;
+    margin: 30%;
+    padding: 1rem;
+    min-width: max-content;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px 10px #fff;
 }
 
 /* ============================ SIGNUP.JSX & LOGIN.JSX ==========================*/

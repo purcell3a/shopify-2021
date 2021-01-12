@@ -30,7 +30,7 @@ class User(db.Model):
 
     def __repr__(self):
         return (f'<User user_id={self.user_id} fname ={self.fname} lname={self.lname} '
-                f'email={self.email} password={self.password} submission_status={submission_status} date_added={self.date_added} date_modified={self.date_modified}>')
+                f'email={self.email} password={self.password} submission_status={self.submission_status} date_added={self.date_added} date_modified={self.date_modified}>')
 
 class Nomination(db.Model):
     """A user."""
@@ -49,12 +49,18 @@ class Nomination(db.Model):
     movie_title = db.Column(db.String,
                         nullable=False,
                         unique=False)
+    poster = db.Column(db.String,
+                        nullable=False,
+                        unique=False)
+    year = db.Column(db.String,
+                        nullable=False,
+                        unique=False)
     date_added = db.Column(db.DateTime,nullable=False)
     date_modified = db.Column(db.DateTime,nullable=False)
 
     def __repr__(self):
         return (f'<Nomination user_id={self.user_id} nom_id={self.nom_id} movie_id={self.movie_id} '
-                f'date_added={self.date_added} date_modified={self.date_modified}>')
+                f' poster={self.poster} year={self.year} date_added={self.date_added} date_modified={self.date_modified}>')
 
 
 def connect_to_db(flask_app, db_uri='postgresql:///shoppies', echo=True):

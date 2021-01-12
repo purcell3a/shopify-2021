@@ -1,9 +1,10 @@
 
-function Nomination({user,nominations, setNominations,triggerNominations,setTriggerNominations}) {
+function Nomination({user,nominations,setTriggerNominations}) {
 
-    const [submitNomination, setSubmitNomination] = React.useState(false);
+    const history = useHistory()
 
-    function handleStarClick(imdbID,title){
+
+    function removeNominate(imdbID,title){
         setTriggerNominations(title)
         let user_id = user.id
         let data = {'imdbID':imdbID,'user_id':user_id,'title':title}
@@ -12,6 +13,18 @@ function Nomination({user,nominations, setNominations,triggerNominations,setTrig
         .then(response => response.json())
         .then(data => {setTriggerNominations(data)});
     }
+
+    function handleSubmission(){
+        console.log('nominations',user)
+        let user_id = user.id
+        let data = {'user_id':user_id}
+        fetch('/api/toggle-submission-status',
+        {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
+        .then(response => response.json())
+        .then(data => {console.log(data)});
+        history.push('/usernomination')
+    }
+
 
     function generateNominations(){
 
@@ -22,10 +35,13 @@ function Nomination({user,nominations, setNominations,triggerNominations,setTrig
 
                 <p className='truncate-description'>
 
+                {!user.submission_status &&(
+
                     <i  className="fa fa-times-circle"
-                        id="remove-nomination"
-                        onClick={() => handleStarClick(movie.imdbID, movie.Title)}>
+                    id="remove-nomination"
+                    onClick={() => removeNominate(movie.imdbID, movie.Title)}>
                     </i>
+                )}
 
                     {movie.Title}
                 </p>
@@ -41,14 +57,6 @@ function Nomination({user,nominations, setNominations,triggerNominations,setTrig
 
         <React.Fragment>
 
-            {submitNomination &&(
-
-            <SubmitNominationModal
-                show={submitNomination}
-                onHide={() => setSubmitNomination(false)}/>
-
-            )}
-
             <div id="nomination-div">
 
                 <span id='nominations-title'>Your Nominations</span>
@@ -57,17 +65,20 @@ function Nomination({user,nominations, setNominations,triggerNominations,setTrig
                     {generateNominations()}
                 </div>
 
-                {nominations.length == 5 ?
-                    <Button
-                        variant="primary"
-                        id="submit-nominations-button"
-                        onClick={() => setSubmitNomination(true)}>
-                        Submit Nominations
-                    </Button>
-                    :
-                    <div id="choose-5-to-submit">
-                        Choose 5 to Submit
-                    </div>
+                {!user.submission_status &&
+
+                    (nominations.length == 5 ?
+                        <Button
+                            variant="primary"
+                            id="submit-nominations-button"
+                            onClick={() => handleSubmission()}>
+                            Submit Nominations
+                        </Button>
+                        :
+                        <div id="choose-5-to-submit">
+                            Choose 5 to Submit
+                        </div>
+                    )
                 }
 
             </div>

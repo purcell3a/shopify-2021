@@ -1,5 +1,5 @@
 function Homepage({nominations, user, setNominations,triggerNominations,setTriggerNominations}) {
-
+    console.log('homepage',user)
     const [apiKey, setApiKey] = React.useState('')
     const [error, setError] = React.useState(null);
     const [loading, setLoading] = React.useState(false);
@@ -41,10 +41,10 @@ function Homepage({nominations, user, setNominations,triggerNominations,setTrigg
     }
 
 
-    function nominate(imdbID,title){
+    function nominate(imdbID,title,poster,year){
         setTriggerNominations(imdbID)
         let user_id = user? user.id:alert('Please Log In To Nominate')
-        let data = {'imdbID':imdbID,'user_id':user_id,'title':title}
+        let data = {'imdbID':imdbID,'user_id':user_id,'title':title,'poster':poster, 'year':year}
         fetch('/api/toggle-nominate',{method: "POST",  body: JSON.stringify(data),  headers: {
           'Content-Type': 'application/json'}} )
         .then(response => response.json())
@@ -79,20 +79,22 @@ function Homepage({nominations, user, setNominations,triggerNominations,setTrigg
                     <h6><small>{movie.Year}</small></h6>
                 </Card.Title>
 
-                {(nominations && nominations.filter(nomination => nomination.Title === movie.Title)).length?
-                    <Button
-                    id="hover-button"
-                    variant="primary">
-                    Nominated!
+                {!user.submission_status && (
+
+                    (nominations && nominations.filter(nomination => nomination.Title === movie.Title)).length?
+                        <Button
+                        id="hover-button"
+                        variant="primary">
+                        Nominated!
+                        </Button>
+                        :
+                        <Button
+                        id="hover-button"
+                        variant="primary"
+                        onClick={() =>{nominate(movie.imdbID,movie.Title,movie.Poster,movie.Year)}}>
+                        nominate
                     </Button>
-                    :
-                    <Button
-                    id="hover-button"
-                    variant="primary"
-                    onClick={() =>{nominate(movie.imdbID,movie.Title)}}>
-                    nominate
-                </Button>
-                }
+                )}
 
               </Card.Body>
 
@@ -123,8 +125,9 @@ function Homepage({nominations, user, setNominations,triggerNominations,setTrigg
             {lastNominationModal &&(
 
                 <LastNominationModal
-                show={lastNominationModal}
-                onHide={() => setLastNominationModal(false)}/>
+                    user={user}
+                    show={lastNominationModal}
+                    onHide={() => setLastNominationModal(false)}/>
             )}
 
             <Row id='search-row'>

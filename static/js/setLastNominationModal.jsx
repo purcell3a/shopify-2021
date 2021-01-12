@@ -1,7 +1,22 @@
-function LastNominationModal(props) {
-    return (
+function LastNominationModal(show, user) {
+
+  const history = useHistory()
+
+  function handleSubmission(){
+    console.log(user)
+    show.onHide
+    let user_id = user.id
+    let data = {'user_id':user_id}
+    fetch('/api/toggle-submission-status',
+    {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
+    .then(response => response.json())
+    .then(data => {console.log(data)});
+    history.push('/usernomination')
+  }
+
+  return (
       <Modal
-        {...props}
+        {...show}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
@@ -13,9 +28,9 @@ function LastNominationModal(props) {
           </p>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>return to movies</Button>
-          <Button onClick={props.onHide}>Submit Movies</Button>
+          <Button onClick={show.onHide}>return to movies</Button>
+          <Button onClick={() => handleSubmission()}>Submit Movies</Button>
         </Modal.Footer>
       </Modal>
-    );
-  }
+  );
+}

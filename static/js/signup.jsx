@@ -6,7 +6,6 @@
     const [password, setPassword] = React.useState('')
     const [fname, setFname] = React.useState('')
     const [lname, setLname] = React.useState('')
-    const history = useHistory()
 
     function handleSubmit(evt){
       evt.preventDefault()
@@ -21,29 +20,7 @@
             alert('invalid email or password')
           }
        });
-      console.log(data);
     }
-
-
-    function handleEmailChange(evt){
-      setEmail(evt.target.value)
-    }
-
-
-    function handlePasswordChange(evt){
-      setPassword(evt.target.value)
-    }
-
-
-    function handleFnameChange(evt){
-      setFname(evt.target.value)
-    }
-
-
-    function handleLnameChange(evt){
-      setLname(evt.target.value)
-    }
-
 
       return (
 
@@ -59,19 +36,35 @@
                     <Form id='signupform' onSubmit={handleSubmit}>
 
                           <Form.Group controlId="formBasicfname">
-                            <Form.Control type="text" name="fname" placeholder="First" value={fname} onChange={handleFnameChange}></Form.Control>
+                            <Form.Control type="text"
+                                          name="fname"
+                                          placeholder="First"
+                                          value={fname}
+                                          onChange={() => setFname(value)}></Form.Control>
                           </Form.Group>
 
                           <Form.Group controlId="formBasiclname">
-                            <Form.Control type="text" name="lname"  placeholder="Last" value={lname} onChange={handleLnameChange}></Form.Control>
+                            <Form.Control type="text"
+                                          name="lname"
+                                          placeholder="Last"
+                                          value={lname}
+                                          onChange={() => setLname(value)}></Form.Control>
                           </Form.Group>
 
                           <Form.Group controlId="formBasicemail">
-                            <Form.Control type="email" name="email"  placeholder="email" value={email} onChange={handleEmailChange}></Form.Control>
+                            <Form.Control type="email"
+                                          name="email"
+                                          placeholder="email"
+                                          value={email}
+                                          onChange={() => setEmail(value)}></Form.Control>
                           </Form.Group>
 
                           <Form.Group controlId="formSignupPassword">
-                            <Form.Control type="password" name="password"  placeholder="password" value={password} onChange={handlePasswordChange}></Form.Control>
+                            <Form.Control type="password"
+                                          name="password"
+                                          placeholder="password"
+                                          value={password}
+                                          onChange={() => setPassword(value)}></Form.Control>
                           </Form.Group>
 
                           <Button id='register-button'

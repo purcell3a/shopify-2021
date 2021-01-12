@@ -1,21 +1,23 @@
 "use strict";
 
-function Login(setUser) {
+function Login(props) {
 
+  // ! when i use props.setUser it works -- when i use setUser it doesn't
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const history = useHistory()
 
 
+
   function handleSubmit(evt){
     evt.preventDefault()
     let data = {email:email, password:password}
-    fetch('/api/login' ,
+    fetch('/api/login',
     {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
     .then(response => response.json())
     .then(data => {
       if (data !== 'info does not match'){
-        setUser(data)
+        props.setUser(data)
         localStorage.setItem('user',JSON.stringify(data));
         history.push('/homepage');
       }else{

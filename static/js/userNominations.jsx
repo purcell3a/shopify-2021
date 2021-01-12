@@ -1,8 +1,9 @@
 
 //  will show this page if user returns and has submitted nominations
 
-function UserNominations({user}) {
+function UserNominations({user,nominations}) {
 
+    const [submitNomination, setSubmitNomination] = React.useState(true);
     const [movies, setMovies] = React.useState([])
 
     React.useEffect(() => {
@@ -15,6 +16,7 @@ function UserNominations({user}) {
 
 
     function generateMovieCards(){
+        console.log(movies)
         const cards = movies.map((movie,index) =>(
 
             <Card   key={movie.Title + index} value={index}>
@@ -39,9 +41,29 @@ function UserNominations({user}) {
 
 
     return (
+        <React.Fragment>
 
-    <Row>
-        {generateMovieCards()}
-    </Row>
+                {submitNomination &&(
+
+                <SubmitNominationModal
+                    show={submitNomination}
+                    onHide={() => setSubmitNomination(false)}/>
+
+                )}
+
+            <Jumbotron id='user-submitted-nominations'>
+
+            <span id='submission-header-box'>
+                <h1 id='thanks-for-submitting'>{user.fname}'s Submissions!</h1>
+            </span>
+
+            <Row id='submission-row'>
+                {generateMovieCards()}
+            </Row>
+
+            </Jumbotron>
+
+        </React.Fragment>
+
     );
 }

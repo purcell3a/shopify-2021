@@ -1,4 +1,5 @@
 function SubmitNominationModal(props) {
+  
     return (
       <Modal
         {...props}
