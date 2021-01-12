@@ -35,14 +35,16 @@ function Nomination({user,nominations,setTriggerNominations}) {
 
                 <p className='truncate-description'>
 
-                {!user.submission_status &&(
+                {user.submission_status == 'false'?
 
-                    <i  className="fa fa-times-circle"
+                    (<i  className="fa fa-times-circle"
                     id="remove-nomination"
                     onClick={() => removeNominate(movie.imdbID, movie.Title)}>
                     </i>
-                )}
-
+                    )
+                    :
+                    <div></div>
+                }
                     {movie.Title}
                 </p>
 
@@ -65,7 +67,7 @@ function Nomination({user,nominations,setTriggerNominations}) {
                     {generateNominations()}
                 </div>
 
-                {!user.submission_status &&
+                {user.submission_status == 'false'?
 
                     (nominations.length == 5 ?
                         <Button
@@ -78,7 +80,14 @@ function Nomination({user,nominations,setTriggerNominations}) {
                         <div id="choose-5-to-submit">
                             Choose 5 to Submit
                         </div>
-                    )
+                    ):
+                    <Button
+                    variant="primary"
+                    id="submit-nominations-button"
+                    // onClick={() => handleSubmission()}
+                    >
+                    Share
+                    </Button>
                 }
 
             </div>

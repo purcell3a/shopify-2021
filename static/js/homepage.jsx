@@ -79,7 +79,7 @@ function Homepage({nominations, user, setNominations,triggerNominations,setTrigg
                     <h6><small>{movie.Year}</small></h6>
                 </Card.Title>
 
-                {!user.submission_status && (
+                {user.submission_status == 'false'? (
 
                     (nominations && nominations.filter(nomination => nomination.Title === movie.Title)).length?
                         <Button
@@ -94,7 +94,10 @@ function Homepage({nominations, user, setNominations,triggerNominations,setTrigg
                         onClick={() =>{nominate(movie.imdbID,movie.Title,movie.Poster,movie.Year)}}>
                         nominate
                     </Button>
-                )}
+                    )
+                    :
+                    <div></div>
+                }
 
               </Card.Body>
 

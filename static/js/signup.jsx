@@ -40,7 +40,7 @@
                                           name="fname"
                                           placeholder="First"
                                           value={fname}
-                                          onChange={() => setFname(value)}></Form.Control>
+                                          onChange={e => setFname(e.target.value)}></Form.Control>
                           </Form.Group>
 
                           <Form.Group controlId="formBasiclname">
@@ -48,7 +48,7 @@
                                           name="lname"
                                           placeholder="Last"
                                           value={lname}
-                                          onChange={() => setLname(value)}></Form.Control>
+                                          onChange={e => setLname(e.target.value)}></Form.Control>
                           </Form.Group>
 
                           <Form.Group controlId="formBasicemail">
@@ -56,7 +56,7 @@
                                           name="email"
                                           placeholder="email"
                                           value={email}
-                                          onChange={() => setEmail(value)}></Form.Control>
+                                          onChange={e => setEmail(e.target.value)}></Form.Control>
                           </Form.Group>
 
                           <Form.Group controlId="formSignupPassword">
@@ -64,7 +64,7 @@
                                           name="password"
                                           placeholder="password"
                                           value={password}
-                                          onChange={() => setPassword(value)}></Form.Control>
+                                          onChange={e => setPassword(e.target.value)}></Form.Control>
                           </Form.Group>
 
                           <Button id='register-button'

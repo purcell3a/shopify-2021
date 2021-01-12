@@ -15,7 +15,7 @@ function App() {
 
     React.useEffect(() => {
         const currentuser = JSON.parse(localStorage.getItem('user'));
-        setUser(currentuser)
+        currentuser? setUser(currentuser): console.log(currentuser)
     },[]);
 
 
@@ -24,8 +24,8 @@ function App() {
         fetch('/api/get-user-nominations' ,
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())
-        .then(data => setNominations(data))
-    }, [triggerNominations]);
+         .then(data => setNominations(data))
+    }, [triggerNominations, user]);
 
 
     return (
@@ -64,6 +64,7 @@ function App() {
 
 
                 <Route path="/usernomination">
+                    <TopNav user={user} setUser={setUser}/>
                     <UserNominations user={user}
                                 nominations={nominations}
                                 setNominations={setNominations}/>

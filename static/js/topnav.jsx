@@ -40,9 +40,11 @@ function TopNav({user, setUser}){
                     <Nav className="mr-auto">
                         {user?'':<Nav.Link to="/signup">Login | Signup</Nav.Link>}
                         {user?
-                        <NavDropdown title= {user.fname} id="basic-nav-dropdown">
-                                <NavDropdown.Item><Button onClick={handleSubmit} variant="light">Logout</Button></NavDropdown.Item>
-                        </NavDropdown>:''}
+                            <NavDropdown title= {user.fname} id="basic-nav-dropdown">
+                                    <NavDropdown.Item><Button onClick={handleSubmit} variant="light">Logout</Button></NavDropdown.Item>
+                            </NavDropdown>:''}
+                        {user.submission_status == 'true'?
+                            (<Nav.Link to="/">Share</Nav.Link>):(<div></div>)}
                     </Nav>
                 </Navbar.Collapse>
         </Navbar>
