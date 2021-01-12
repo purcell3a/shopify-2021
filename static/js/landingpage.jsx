@@ -1,5 +1,5 @@
 // "use strict";
-function LandingPage(props) {
+function LandingPage() {
 
     const history = useHistory()
 

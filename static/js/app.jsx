@@ -33,6 +33,11 @@ function App() {
 
           <Switch>
 
+                <Route exact path="/">
+                    <LandingPage/>
+                </Route>
+
+
                 <Route path='/login'>
                     <Login user={user} setUser={setUser}/>
                 </Route>
@@ -43,10 +48,6 @@ function App() {
                 </Route>
 
 
-                <Route exact path="/">
-                    <LandingPage user={user} />
-                </Route>
-
                 <Route exact path='/homepage'>
                     <TopNav user={user} setUser={setUser}/>
                     <Homepage user={user}
@@ -55,6 +56,7 @@ function App() {
                               setTriggerNominations={setTriggerNominations}
                               triggerNominations={triggerNominations}/>
                 </Route>
+
 
                 <Route path="/nomination">
                     <Nomination user={user}
@@ -69,6 +71,7 @@ function App() {
                                 nominations={nominations}
                                 setNominations={setNominations}/>
                 </Route>
+
 
                 <Route path="/lastnominationmodal">
                     <LastNominationModal user={user}/>
