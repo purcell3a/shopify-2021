@@ -14,15 +14,14 @@ function Nomination({user,nominations,setTriggerNominations}) {
         .then(data => {setTriggerNominations(data)});
     }
 
-    function handleSubmission(){
-        console.log('nominations',user)
-        let user_id = user.id
+    function handleSubmission(user_id){
+        console.log('nominations user_id',user_id)
         let data = {'user_id':user_id}
         fetch('/api/toggle-submission-status',
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())
         .then(data => {console.log(data)});
-        history.push('/usernomination')
+        history.push({pathname:`/usernomination/${user_id}`})
     }
 
 
@@ -73,7 +72,7 @@ function Nomination({user,nominations,setTriggerNominations}) {
                         <Button
                             variant="primary"
                             id="submit-nominations-button"
-                            onClick={() => handleSubmission()}>
+                            onClick={() => handleSubmission(user.id)}>
                             Submit Nominations
                         </Button>
                         :

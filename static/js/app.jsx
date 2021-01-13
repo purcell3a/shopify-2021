@@ -65,7 +65,7 @@ function App() {
                 </Route>
 
 
-                <Route path="/usernomination">
+                <Route path="/usernomination/:user_id">
                     <TopNav user={user} setUser={setUser}/>
                     <UserNominations user={user}
                                 nominations={nominations}
