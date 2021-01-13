@@ -1,4 +1,5 @@
 function SubmitNominationModal(props) {
+  console.log('submitnominationsmodalprops', props)
   
     return (
       <Modal

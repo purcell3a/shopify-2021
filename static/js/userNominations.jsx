@@ -1,22 +1,6 @@
-
-//  will show this page if user returns and has submitted nominations
-
 function UserNominations({user,nominations}) {
 
-
-
-
     let { user_id } = useParams();
-    // const[productInfo, setProductInfo] = React.useState({})
-
-    // React.useEffect(() =>{
-    //     let data = {productId}
-    //     fetch('/api/product-info', 
-    //     {method:"POST", body: JSON.stringify(data),headers: { 'Content-Type': 'application/json'}})
-    //     .then(response => response.json())
-    //     .then(data => setProductInfo(data));
-    // }, []);
-
     const [submitNomination, setSubmitNomination] = React.useState(true);
     const [movies, setMovies] = React.useState([])
 
@@ -61,6 +45,8 @@ function UserNominations({user,nominations}) {
 
                 <SubmitNominationModal
                     show={submitNomination}
+                    //  shareableLink = {`54.203.10.162:openport(80)usernomination/${user.id}`}
+                    shareableLink = {`localhost:5000/usernomination//${user_id}`}
                     onHide={() => setSubmitNomination(false)}/>
 
                 )}
