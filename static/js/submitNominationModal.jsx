@@ -1,5 +1,5 @@
 function SubmitNominationModal(props) {
-  console.log('submitnominationsmodalprops', props)
+  console.log('submitnominationsmodalprops',props)
   
     return (
       <Modal
@@ -15,8 +15,8 @@ function SubmitNominationModal(props) {
           </p>
         </Modal.Body>
         <Modal.Footer>
+          <div> text here <a>{props.shareableLink}</a></div>
           <Button onClick={props.onHide}>Share with Friends</Button>
-          <Button onClick={props.onHide}>Exit</Button>
         </Modal.Footer>
       </Modal>
     );
