@@ -17,6 +17,15 @@ def user_submit_status(user_id):
 
     db.session.commit()
 
+    updated_user = User.query.get(user_id)
+
+    user = {'email': updated_user.email,
+            'fname' : updated_user.fname,
+            'lname' : updated_user.lname,
+            'password' : updated_user.password,
+            'submission_status':updated_user.submission_status,
+            'user_id' : updated_user.user_id}
+
     return user
 
 def create_user(fname,lname,email,password):
@@ -25,13 +34,21 @@ def create_user(fname,lname,email,password):
 
     db.session.add(new_user)
     db.session.commit()
-    return new_user
+
+    user = {'email': new_user.email,
+            'fname' : new_user.fname,
+            'lname' : new_user.lname,
+            'password' : new_user.password,
+            'submission_status':new_user.submission_status,
+            'user_id' : new_user.user_id}
+
+    return user
 
 def get_user_by_email(email):
     ''' return a user by email'''
 
     result = User.query.filter(User.email == email).first()
-    user = { 'email': result.email,
+    user = {'email': result.email,
             'fname' : result.fname,
             'lname' : result.lname,
             'password' : result.password,
