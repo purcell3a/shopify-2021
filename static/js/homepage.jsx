@@ -1,5 +1,5 @@
 function Homepage({nominations, user, setNominations,triggerNominations,setTriggerNominations}) {
-    console.log('homepage',user)
+
     const [apiKey, setApiKey] = React.useState('')
     const [error, setError] = React.useState(null);
     const [loading, setLoading] = React.useState(false);

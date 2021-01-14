@@ -6,7 +6,7 @@ function TopNav({user, setUser}){
   function handleSubmit(evt){
     evt.preventDefault()
     localStorage.removeItem('user');
-    setUser(undefined)
+    setUser({fname: "", id: 0, sumbission_status:'false'})
     console.log('logged out')
     history.push('/');
   }
@@ -14,6 +14,7 @@ function TopNav({user, setUser}){
 
     return(
         <React.Fragment>
+
         <Navbar
         scrolling="true"
         expand="sm"
@@ -43,8 +44,6 @@ function TopNav({user, setUser}){
                             <NavDropdown title= {user.fname} id="basic-nav-dropdown">
                                     <NavDropdown.Item><Button onClick={handleSubmit} variant="light">Logout</Button></NavDropdown.Item>
                             </NavDropdown>:''}
-                        {user.submission_status == 'true'?
-                            (<Nav.Link to="/">Share</Nav.Link>):(<div></div>)}
                     </Nav>
                 </Navbar.Collapse>
         </Navbar>

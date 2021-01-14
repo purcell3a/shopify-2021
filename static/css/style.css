@@ -1,4 +1,9 @@
 /* ====================================== IN PROGRESS ======================================== */
+
+#tweet-button{
+    background:#1da1f2;
+    border-color: whitesmoke;
+}
 #submission-row{
     justify-content: center;
     max-width: 80%;

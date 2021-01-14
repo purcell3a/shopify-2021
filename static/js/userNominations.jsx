@@ -4,6 +4,7 @@ function UserNominations({user,nominations}) {
     const [submitNomination, setSubmitNomination] = React.useState(true);
     const [movies, setMovies] = React.useState([])
 
+
     React.useEffect(() => {
         let data = {'user_id' : user_id}
         fetch('/api/get-user-nominations' ,

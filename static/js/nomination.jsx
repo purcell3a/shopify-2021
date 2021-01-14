@@ -2,6 +2,8 @@
 function Nomination({user,nominations,setTriggerNominations}) {
 
     const history = useHistory()
+    let { user_id } = useParams();
+    const [submitNomination, setSubmitNomination] = React.useState(false);
 
 
     function removeNominate(imdbID,title){
@@ -15,7 +17,7 @@ function Nomination({user,nominations,setTriggerNominations}) {
     }
 
     function handleSubmission(user_id){
-        console.log('nominations user_id',user_id)
+        console.log('nominations userid',user_id)
         let data = {'user_id':user_id}
         fetch('/api/toggle-submission-status',
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
@@ -58,6 +60,15 @@ function Nomination({user,nominations,setTriggerNominations}) {
 
         <React.Fragment>
 
+            {submitNomination &&(
+
+            <SubmitNominationModal
+                show={submitNomination}
+                shareableLink = {`localhost:5000/usernomination//${user_id}`}
+                onHide={() => setSubmitNomination(false)}/>
+
+            )}
+
             <div id="nomination-div">
 
                 <span id='nominations-title'>Your Nominations</span>
@@ -83,8 +94,7 @@ function Nomination({user,nominations,setTriggerNominations}) {
                     <Button
                     variant="primary"
                     id="submit-nominations-button"
-                    // onClick={() => handleSubmission()}
-                    >
+                    onClick={() => setSubmitNomination(true)}>
                     Share
                     </Button>
                 }

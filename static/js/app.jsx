@@ -1,8 +1,3 @@
-
-// ! Animations for loading, adding/deleting movies, notifications
-
-// ! Create shareable links
-
 const Router = ReactRouterDOM.BrowserRouter;
 const { useHistory, useParams, Redirect, Switch, Prompt, Link, Route } = ReactRouterDOM;
 
@@ -70,11 +65,6 @@ function App() {
                     <UserNominations user={user}
                                 nominations={nominations}
                                 setNominations={setNominations}/>
-                </Route>
-
-
-                <Route path="/lastnominationmodal">
-                    <LastNominationModal user={user}/>
                 </Route>
 
           </Switch>

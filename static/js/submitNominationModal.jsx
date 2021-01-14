@@ -23,11 +23,11 @@ function SubmitNominationModal(props) {
          Copy link to clipboard
         </Button>
 
-
-                   <a class="twitter-share-button"
-                    rel="canonical"
-                    href={`https://twitter.com/intent/tweet?text=I%20just%20submit%20nominations%20for%20Shoppies%202021%20awards!%20https%3A%2F%2F${props.shareableLink}%2F`}>
-                  Tweet</a>
+        <Button className="twitter-share-button" 
+                id="tweet-button"
+                href={`https://twitter.com/intent/tweet?text=I%20just%20submit%20nominations%20for%20Shoppies%202021%20awards!%20https%3A%2F%2F${props.shareableLink}%2F`}>
+                Tweet
+        </Button>
 
         </Modal.Footer>
       </Modal>
