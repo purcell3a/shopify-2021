@@ -8,6 +8,7 @@ import logging
 # ======================================== USER ROUTES =============================================
 
 def user_submit_status(user_id):
+    '''UPDATE USER SUBMISSION STATUS'''
 
     now = datetime.datetime.now()
     user = User.query.get(user_id)
@@ -28,7 +29,10 @@ def user_submit_status(user_id):
 
     return user
 
+
 def create_user(fname,lname,email,password):
+    '''CREATE NEW USER'''
+
     now = datetime.datetime.now()
     new_user= User(fname=fname, lname=lname, email=email, password=password,submission_status='false',date_added=now, date_modified= now)
 
@@ -45,7 +49,7 @@ def create_user(fname,lname,email,password):
     return user
 
 def get_user_by_email(email):
-    ''' return a user by email'''
+    '''RETURN USER BY EMAIL'''
 
     result = User.query.filter(User.email == email).first()
     user = {'email': result.email,
@@ -59,7 +63,7 @@ def get_user_by_email(email):
 
 
 def does_user_exist(email):
-    ''' return a user by email'''
+    ''' CHECK IF USER EXISTS'''
 
     result = User.query.filter(User.email == email).first()
 
@@ -70,13 +74,14 @@ def does_user_exist(email):
 
 
 def validate_user(password,email):
-    """checks for valid password on login"""
+    """CHECK FOR VALID PASSWORD AT LOGIN"""
 
     return User.query.filter(User.password == password, User.email == email).first()
 
 # ======================================== NOMINATION ROUTES =============================================
 
 def get_user_nominations(user_id):
+    '''RETURN USER'S NOMINATIONS'''
 
     nomination_object_list = []
     nomination_id_list = Nomination.query.filter(Nomination.user_id == user_id).all()
@@ -94,12 +99,14 @@ def get_user_nominations(user_id):
     return nomination_object_list
 
 def get_nomination(user_id, imdbID):
+    '''GET SPECIFIC NOMINATION'''
 
     nomination = Nomination.query.filter(Nomination.user_id == user_id, Nomination.movie_id == imdbID).first()
 
     return nomination
 
 def remove_nomination(user_id, imdbID):
+    '''REMOVE NOMINATION'''
 
     nomination = Nomination.query.filter(Nomination.user_id == user_id, Nomination.movie_id == imdbID).first()
 
@@ -108,6 +115,7 @@ def remove_nomination(user_id, imdbID):
 
 
 def add_nominate(user_id, imdbID,movie_title,poster,year):
+    '''ADD NOMINATION'''
 
     now = datetime.datetime.now()
     new_nomination = Nomination(user_id = user_id,

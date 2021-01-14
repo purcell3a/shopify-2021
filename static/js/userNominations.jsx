@@ -1,4 +1,4 @@
-function UserNominations({user,nominations}) {
+function UserNominations({user}) {
 
     let { user_id } = useParams();
     const [submitNomination, setSubmitNomination] = React.useState(true);
@@ -15,7 +15,7 @@ function UserNominations({user,nominations}) {
 
 
     function generateMovieCards(){
-        console.log(movies)
+
         const cards = movies.map((movie,index) =>(
 
             <Card   key={movie.Title + index} value={index}>
@@ -34,33 +34,32 @@ function UserNominations({user,nominations}) {
 
             </Card>
 
-          ))
-          return cards
-      }
+        ))
+        return cards
+    }
 
 
     return (
+
         <React.Fragment>
 
-                {submitNomination &&(
+            {submitNomination &&(
 
                 <SubmitNominationModal
                     show={submitNomination}
-                    //  shareableLink = {`54.203.10.162:openport(80)usernomination/${user.id}`}
                     shareableLink = {`localhost:5000/usernomination//${user_id}`}
                     onHide={() => setSubmitNomination(false)}/>
-
-                )}
+            )}
 
             <Jumbotron id='user-submitted-nominations'>
 
-            <span id='submission-header-box'>
-                <h1 id='thanks-for-submitting'>{user.fname}'s Submissions!</h1>
-            </span>
+                <span id='submission-header-box'>
+                    <h1 id='thanks-for-submitting'>{user.fname}'s Submissions!</h1>
+                </span>
 
-            <Row id='submission-row'>
-                {generateMovieCards()}
-            </Row>
+                <Row id='submission-row'>
+                    {generateMovieCards()}
+                </Row>
 
             </Jumbotron>
 

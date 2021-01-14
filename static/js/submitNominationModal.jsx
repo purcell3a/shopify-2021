@@ -1,23 +1,30 @@
 function SubmitNominationModal(props) {
 
+
   function copyToClipBoard(link){
     document.execCommand("copy");
     alert("Copied the text: " + link);
   }
-    return (
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Body>
-          <h4>Congrats!</h4>
-          <p>
-            Thanks for taking part in the Shoppies 2021 Movie awards!
-          </p>
-        </Modal.Body>
-        <Modal.Footer>
+
+
+  return (
+
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+
+      <Modal.Body>
+
+        <h4>Congrats!</h4>
+        <p>
+          Thanks for taking part in the Shoppies 2021 Movie awards!
+        </p>
+
+      </Modal.Body>
+
+      <Modal.Footer>
 
         <Button onClick={() => copyToClipBoard(props.shareableLink)}>
          Copy link to clipboard
@@ -29,11 +36,9 @@ function SubmitNominationModal(props) {
                 Tweet
         </Button>
 
-        </Modal.Footer>
-      </Modal>
-    );
-  }
+      </Modal.Footer>
 
-// sourced from https://codesandbox.io/s/react-hooks-counter-demo-forked-9lsol?file=/src/index.js:103-448
-// https://stackoverflow.com/questions/63546951/react-copy-to-clipboard-using-useref-hook
+    </Modal>
+  );
+}
 

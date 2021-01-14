@@ -1,13 +1,8 @@
-"use strict";
-
 function Login(props) {
 
-  // ! when i use props.setUser it works -- when i use setUser it doesn't
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
   const history = useHistory()
-
-
 
   function handleSubmit(evt){
     evt.preventDefault()
@@ -24,51 +19,40 @@ function Login(props) {
         alert('Invalid Username or Password')
       }
       console.log(data)
-      });
-  }
-
-
-  function handleEmailChange(evt){
-    setEmail(evt.target.value)
-
-
-  }
-
-  function handlePasswordChange(evt){
-    setPassword(evt.target.value)
-
-
+    });
   }
 
     return (
 
       <React.Fragment>
 
-                <Form id="loginform" onSubmit={handleSubmit}>
+        <Form id="loginform" onSubmit={handleSubmit}>
 
-                  <Form.Group controlId="formBasicEmail">
-                    <Form.Control type="email"
-                                  name="login-email"
-                                  placeholder="Enter email"
-                                  value={email}
-                                  onChange={handleEmailChange} />
-                  </Form.Group>
+          <Form.Group controlId="formBasicEmail">
 
-                  <Form.Group controlId="formBasicPassword">
-                    <Form.Control type="password"
-                                  name="login-password"
-                                  placeholder="Password"
-                                  value={password}
-                                  onChange={handlePasswordChange}></Form.Control>
-                  </Form.Group>
+            <Form.Control type="email"
+                          name="login-email"
+                          placeholder="Enter email"
+                          value={email}
+                          onChange={e => setEmail(e.target.value)} />
+            </Form.Group>
 
-                      <Button id='login-button'
-                              variant="primary"
-                              type="submit">
-                        Login
-                      </Button>
+            <Form.Group controlId="formBasicPassword">
 
-                </Form>
+              <Form.Control type="password"
+                            name="login-password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={e => setPassword(e.target.value)}></Form.Control>
+              </Form.Group>
+
+          <Button id='login-button'
+                      variant="primary"
+                      type="submit">
+                      Login
+          </Button>
+
+        </Form>
 
       </React.Fragment>
     );

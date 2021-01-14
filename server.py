@@ -15,12 +15,15 @@ def show_homepage(input_path):
     """SHOW APPLICATION HOMEPAGE."""
     return render_template('base.html')
 
+
 @app.route('/api/apikey')
 def return_api():
     '''RETURN API KEY'''
     return jsonify(os.environ['APIKEY'])
 
+
 #!============================= USER ACCOUNT ROUTES =============================
+
 @app.route('/api/signup', methods=["POST"])
 def sign_up():
     """ADD NEW USER TO DB AND GO TO HOMEPAGE"""
@@ -62,6 +65,8 @@ def login_user():
     else:
         return jsonify('info does not match')
 
+
+
 @app.route('/api/toggle-submission-status', methods=["POST"] )
 def user_submission():
     ''' CHANGE USER SUBMIT STATUS TO TRUE'''
@@ -73,13 +78,6 @@ def user_submission():
     # ****************************** #
 
     user_submitted = crud.user_submit_status(user_id)
-    print('*********************************************************')
-    print('*********************************************************')
-    print('*********************************************************')
-    print('*********************************************************')
-    print('*********************************************************')
-    print('*********************************************************')
-    print('user_id', user_submitted)
 
     return jsonify({'fname' : user_submitted['fname'], 'id':user_submitted['user_id'], 'submission_status':user_submitted['submission_status'] })
 

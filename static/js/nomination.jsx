@@ -11,7 +11,7 @@ function Nomination({user,nominations,setTriggerNominations}) {
         let user_id = user.id
         let data = {'imdbID':imdbID,'user_id':user_id,'title':title}
         fetch('/api/remove-nominate',
-        {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
+        {method: "POST",body: JSON.stringify(data),headers: {'Content-Type': 'application/json'}})
         .then(response => response.json())
         .then(data => {setTriggerNominations(data)});
     }
@@ -36,17 +36,18 @@ function Nomination({user,nominations,setTriggerNominations}) {
 
                 <p className='truncate-description'>
 
-                {user.submission_status == 'false'?
+                    {user.submission_status == 'false'?
 
-                    (<i  className="fa fa-times-circle"
-                    id="remove-nomination"
-                    onClick={() => removeNominate(movie.imdbID, movie.Title)}>
-                    </i>
-                    )
-                    :
-                    <div></div>
-                }
+                        (<i  className="fa fa-times-circle"
+                        id="remove-nomination"
+                        onClick={() => removeNominate(movie.imdbID, movie.Title)}>
+                        </i>
+                        )
+                        :
+                        <div></div>
+                    }
                     {movie.Title}
+
                 </p>
 
             </div>

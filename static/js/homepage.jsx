@@ -82,11 +82,7 @@ function Homepage({nominations, user, setNominations,triggerNominations,setTrigg
                 {user.submission_status == 'false'? (
 
                     (nominations && nominations.filter(nomination => nomination.Title === movie.Title)).length?
-                        <Button
-                        id="hover-button"
-                        variant="primary">
-                        Nominated!
-                        </Button>
+                        <div></div>
                         :
                         <Button
                         id="hover-button"
@@ -144,12 +140,9 @@ function Homepage({nominations, user, setNominations,triggerNominations,setTrigg
                     onChange={handleSearchChange} />
                 </Form>
 
-
-
             </Row>
 
             <Row id='movie-row'>
-
 
                 <Col xs={6} md={3}>
 
@@ -160,7 +153,6 @@ function Homepage({nominations, user, setNominations,triggerNominations,setTrigg
                                 showAlert={showAlert}
                                 triggerNominations={triggerNominations}
                                 setTriggerNominations={setTriggerNominations}/>
-
                 </Col>
 
                 <Col xs={12} md={9}>
@@ -182,7 +174,6 @@ function Homepage({nominations, user, setNominations,triggerNominations,setTrigg
                 </Col>
 
             </Row>
-
 
         </React.Fragment>
     );

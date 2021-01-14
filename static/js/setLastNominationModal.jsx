@@ -1,8 +1,6 @@
 function LastNominationModal(props) {
 
   const history = useHistory()
-  // console.log('nominations userid',user_id)
-  // console.log('paramsuserid',user_id)
 
   function handleSubmission(user_id){
     console.log('setlastuserid',user_id)
@@ -16,22 +14,30 @@ function LastNominationModal(props) {
   }
 
   return (
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered>
 
-        <Modal.Body>
-          <h4>Woot!</h4>
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
+
+
+      <Modal.Body>
+
+        <h4>Woot!</h4>
           <p>
             You just nominated your 5th Movie, submit your nominations to continue!
           </p>
-        </Modal.Body>
-        <Modal.Footer>
+
+      </Modal.Body>
+
+      <Modal.Footer>
+
           <Button onClick={props.onHide}>return to movies</Button>
           <Button onClick={() => handleSubmission(props.user.id)}>Submit Movies</Button>
-        </Modal.Footer>
-      </Modal>
+ 
+      </Modal.Footer>
+
+    </Modal>
   );
 }
