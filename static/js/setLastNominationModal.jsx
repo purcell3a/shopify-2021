@@ -3,7 +3,6 @@ function LastNominationModal(props) {
   const history = useHistory()
 
   function handleSubmission(user_id){
-    console.log('setlastuserid',user_id)
     props.onHide
     let data = {'user_id':user_id}
     fetch('/api/toggle-submission-status',

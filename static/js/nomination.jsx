@@ -17,7 +17,6 @@ function Nomination({user,nominations,setTriggerNominations}) {
     }
 
     function handleSubmission(user_id){
-        console.log('nominations userid',user_id)
         let data = {'user_id':user_id}
         fetch('/api/toggle-submission-status',
         {method: "POST",  body: JSON.stringify(data),  headers: {'Content-Type': 'application/json'}})
@@ -65,7 +64,7 @@ function Nomination({user,nominations,setTriggerNominations}) {
 
             <SubmitNominationModal
                 show={submitNomination}
-                shareableLink = {`localhost:5000/usernomination//${user_id}`}
+                shareablelink = {`0.0.0.0:5000`}
                 onHide={() => setSubmitNomination(false)}/>
 
             )}

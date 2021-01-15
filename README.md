@@ -49,15 +49,26 @@ We'd like a simple to use interface that makes it easy to:
 ###### https://codesandbox.io/s/react-hooks-counter-demo-forked-9lsol?file=/src/index.js:103-448
 ###### https://stackoverflow.com/questions/63546951/react-copy-to-clipboard-using-useref-hook
 ###### https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview
-
-
+###### https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript
 
 # Stack
 
-- React Hookks
+- React Hooks
 - Python
 - HTML
 - CSS
 - Bootstrap
 - Flask
 - SQLAlchemy
+
+
+# Issues
+
+- The search results don't always format well if there isn't a space after the movie title
+- The search could be more intuitive, in the future I'd add clearer instructions or labels
+- The profile doesn't always automatically revoke nominations privileges once a user has submit
+- The tweet should be pre-filled with hastags and a clickable link (rather than plain text)
+- The copy to clipboard could be more seemless
+- I committed to my github before hiding the APIKEY and wasn't worried about this because it's free but would not do this in the future
+- Some of the movie posters are different sizes so I'd like to build a design more suited to the images
+- The shareable link should show the individuals nominations and not the homepage

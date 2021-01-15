@@ -18,7 +18,6 @@ function Login(props) {
       }else{
         alert('Invalid Username or Password')
       }
-      console.log(data)
     });
   }
 

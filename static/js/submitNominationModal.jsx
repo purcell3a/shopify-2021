@@ -2,7 +2,7 @@ function SubmitNominationModal(props) {
 
 
   function copyToClipBoard(link){
-    document.execCommand("copy");
+    window.prompt("Copy to clipboard: Ctrl+C, Enter", link);
     alert("Copied the text: " + link);
   }
 
@@ -26,13 +26,13 @@ function SubmitNominationModal(props) {
 
       <Modal.Footer>
 
-        <Button onClick={() => copyToClipBoard(props.shareableLink)}>
+        <Button onClick={() => copyToClipBoard(props.shareablelink)}>
          Copy link to clipboard
         </Button>
 
         <Button className="twitter-share-button" 
                 id="tweet-button"
-                href={`https://twitter.com/intent/tweet?text=I%20just%20submit%20nominations%20for%20Shoppies%202021%20awards!%20https%3A%2F%2F${props.shareableLink}%2F`}>
+                href={`https://twitter.com/intent/tweet?text=I%20just%20submit%20nominations%20for%20Shoppies%202021%20awards!%20https%3A%2F%2F${props.shareablelink}%2F`}>
                 Tweet
         </Button>
 
