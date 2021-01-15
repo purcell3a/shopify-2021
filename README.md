@@ -1,5 +1,12 @@
 # Shopify-2021
 Shoppies - job application project for shopify 2021 internship
+Listed:
+- The Challenge
+- The Technical Requirements
+- Extras
+- Stack
+- Issues
+- Directions for running on your machine
 
 # The Challenge
 
@@ -72,3 +79,13 @@ We'd like a simple to use interface that makes it easy to:
 - I committed to my github before hiding the APIKEY and wasn't worried about this because it's free but would not do this in the future
 - Some of the movie posters are different sizes so I'd like to build a design more suited to the images
 - The shareable link should show the individuals nominations and not the homepage
+
+# Directions
+
+- Download files
+- Get your own API key and place in a secrets.sh file like so `export APIKEY="yourkey"`
+- Create .gitignore file and add secrets.sh
+- If you use virtual environments then start one `$ virtualenv env`(initiate) `$ source env/bin/activate`(run)
+- Source your secrets file `$ source secrets.sh` (every single time you open a new terminal)
+- Download required packages by running ` $ pip3 install -r requirements.txt`
+- Launch your server! `python3 server.py`
