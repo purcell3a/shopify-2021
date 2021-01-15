@@ -88,4 +88,5 @@ We'd like a simple to use interface that makes it easy to:
 - If you use virtual environments then start one `$ virtualenv env`(initiate) `$ source env/bin/activate`(run)
 - Source your secrets file `$ source secrets.sh` (every single time you open a new terminal)
 - Download required packages by running ` $ pip3 install -r requirements.txt`
+- Build database by running `$python3 seed_db.py`
 - Launch your server! `python3 server.py`
