@@ -21,7 +21,7 @@ function Homepage({nominations, user, setNominations,triggerNominations,setTrigg
     function api_call(){
         setLoading(true);
         setError(null);
-        fetch(`http://www.omdbapi.com/?s=${search}&apikey=e67626fa&t=movie`)
+        fetch(`http://www.omdbapi.com/?s=${search}&apikey=${apiKey}&t=movie`)
         .then(resp => resp)
         .then(resp => resp.json())
         .then(data => {
