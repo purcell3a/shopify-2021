@@ -47,7 +47,7 @@ function UserNominations({user}) {
 
                 <SubmitNominationModal
                     show={submitNomination}
-                    shareablelink = {`localhost:5000/`}
+                    shareablelink = {`http://54.213.160.218/`}
                     onHide={() => setSubmitNomination(false)}/>
             )}
 
