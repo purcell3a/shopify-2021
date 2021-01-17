@@ -1,5 +1,8 @@
 # Shopify-2021
-Shoppies - job application project for shopify 2021 internship
+
+This is my application project for the front end shopify internshi application 2021
+You can find the the project deployed at http://54.213.160.218/
+
 Listed:
 - The Challenge
 - The Technical Requirements
@@ -82,6 +85,7 @@ We'd like a simple to use interface that makes it easy to:
 - I committed to my github before hiding the APIKEY and wasn't worried about this because it's free but would not do this in the future
 - Some of the movie posters are different sizes so I'd like to build a design more suited to the images
 - The shareable link should show the individuals nominations and not the homepage
+- The site is not yet mobile friendly
 
 # Directions
 
