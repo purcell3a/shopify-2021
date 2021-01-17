@@ -3,12 +3,13 @@
 This is my application project for the front end shopify internshi application 2021
 You can find the the project deployed at http://54.213.160.218/
 
-The color scheme was pulled directly from shopify's website. 
+The color scheme was pulled directly from shopify's website.
 
 Listed:
 - The Challenge
 - The Technical Requirements
 - Extras
+- Directions for using the website
 - Stack
 - Issues
 - Directions for running on your machine
@@ -65,6 +66,15 @@ We'd like a simple to use interface that makes it easy to:
 ###### https://stackoverflow.com/questions/63546951/react-copy-to-clipboard-using-useref-hook
 ###### https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview
 ###### https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript
+
+# Directions
+- users will click the login|signup button to be taken to the make an account page
+- users will choose to either login or signup, when a user creates and account the will recieve an alert to login
+- once logged in users will may type into the search box to render movies
+- to nominate a movie, a user can hover over the movie they want to nominate and a button will appear
+- once a user has nominated 5 movies they will be notified and the option to submit will render
+- once submitted a user will have an opportunity to see their nominations and share the app via link or twitter
+
 
 # Stack
 
