@@ -56,7 +56,7 @@ We'd like a simple to use interface that makes it easy to:
 # Extras
 
  - Save nomination lists if the user leaves the page
- ###### When a user nominateds a movie, a HTTP request is send to an API endpoint and saved to the database. The user nominations are then rendered from the database. This way every nominations is saved and accessible by the user at any time.
+ ###### When a user nominateds a movie, a HTTP request is sent to an API endpoint and saved to the database. The user nominations are then rendered from the database. This way every nominations is saved and accessible by the user at any time.
  - Animations for loading, adding/deleting movies, notifications
   ###### Modals are used to notify the user when they have nominated their last nominations, or try to nominate too many
  - Create shareable links
