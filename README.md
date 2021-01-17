@@ -1,6 +1,6 @@
 # Shopify-2021
 
-This is my application project for the front end shopify internshi application 2021
+This is my application project for the front end shopify internship application
 You can find the the project deployed at http://54.213.160.218/
 
 The color scheme was pulled directly from shopify's website.
