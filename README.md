@@ -23,30 +23,30 @@ These instructions will get you a copy of the project up and running on your loc
 ### Requirements
 
 * Search OMDB's API and display the results (movies only)
-###### By adding `'t=movie'` to the end of the API url we are able to ensure only the Movie 'type' is returned.
+##### By adding `'t=movie'` to the end of the API url we are able to ensure only the Movie 'type' is returned.
 
 * Each search result should list at least its title, year of release and a button to nominate that film.
-###### Movie title and year are shown below the movie poster, the movie can be nominated by hovering over the poster
+##### Movie title and year are shown below the movie poster, the movie can be nominated by hovering over the poster
 
 * Add a movie from the search results to our nomination list
-###### Users can nominate movies by pressing the 'Nominate' button which reveals itself upon hovering over the movie card
+##### Users can nominate movies by pressing the 'Nominate' button which reveals itself upon hovering over the movie card
 
 * Movies in search results can be added and removed from the nomination list.
-###### Movies can be added by hovering over the movie and selecting the "Nominate" button
-###### Movies can be removed using the 'x' in list of nominations on the left of the screen
+##### Movies can be added by hovering over the movie and selecting the "Nominate" button
+##### Movies can be removed using the 'x' in list of nominations on the left of the screen
 
 * If a search result has already been nominated, disable its nominate button.
-###### Removed nomination button once movie has been nominatied rather than displaying one that said "Nominated"
+##### Removed nomination button once movie has been nominatied rather than displaying one that said "Nominated"
 
 * Display a banner when the user has 5 nominations.
-###### The modal from setLastNominationModal.jsx is shown when the user nominates their last nomination
-###### The modal in nominationLimitModal.jsx is is shown if a user attempts to nominate more than 5 movies
+##### The modal from setLastNominationModal.jsx is shown when the user nominates their last nomination
+##### The modal in nominationLimitModal.jsx is is shown if a user attempts to nominate more than 5 movies
 
 * Save nomination lists if the user leaves the page
-###### When a user nominateds a movie, a HTTP request is sent to an API endpoint and saved to the database. The user nominations are then rendered from the database. This way every nominations is saved and accessible by the user at any time.
+##### When a user nominateds a movie, a HTTP request is sent to an API endpoint and saved to the database. The user nominations are then rendered from the database. This way every nominations is saved and accessible by the user at any time.
 
 * Animations for loading, adding/deleting movies, notifications
-###### Modals are used to notify the user when they have nominated their last nominations, or try to nominate too many
+##### Modals are used to notify the user when they have nominated their last nominations, or try to nominate too many
 
 ### User Story
 
