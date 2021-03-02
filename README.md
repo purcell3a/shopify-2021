@@ -2,6 +2,8 @@
 
 * deployed at http://54.213.160.218/
 
+![results](static/img/landingpage.png)
+
 Shopify job appication challenge:
 A webpage that can search OMDB for movies, and allow the user to save their favourite films they feel should be up for nomination. When they've selected 5 nominees they should be notified they're finished.
 
@@ -27,9 +29,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 * Each search result should list at least its title, year of release and a button to nominate that film.
 ##### Movie title and year are shown below the movie poster, the movie can be nominated by hovering over the poster
-
-* Add a movie from the search results to our nomination list
-##### Users can nominate movies by pressing the 'Nominate' button which reveals itself upon hovering over the movie card
+![results](static/img/nominate.png)
 
 * Movies in search results can be added and removed from the nomination list.
 ##### Movies can be added by hovering over the movie and selecting the "Nominate" button
@@ -41,6 +41,7 @@ These instructions will get you a copy of the project up and running on your loc
 * Display a banner when the user has 5 nominations.
 ##### The modal from setLastNominationModal.jsx is shown when the user nominates their last nomination
 ##### The modal in nominationLimitModal.jsx is is shown if a user attempts to nominate more than 5 movies
+![results](static/img/submitmovies.png)
 
 * Save nomination lists if the user leaves the page
 ##### When a user nominateds a movie, a HTTP request is sent to an API endpoint and saved to the database. The user nominations are then rendered from the database. This way every nominations is saved and accessible by the user at any time.
@@ -52,10 +53,14 @@ These instructions will get you a copy of the project up and running on your loc
 
 * users will click the login|signup button to be taken to the make an account page
 * users will choose to either login or signup, when a user creates and account the will recieve an alert to login
+![results](static/img/login.png)
 * once logged in users will may type into the search box to render movies
 * to nominate a movie, a user can hover over the movie they want to nominate and a button will appear
 * once a user has nominated 5 movies they will be notified and the option to submit will render
 * once submitted a user will have an opportunity to see their nominations and share the app via link or twitter
+![results](static/img/sharesubmissions.png)
+![results](static/img/tweet.png)
+![results](static/img/cc-clipboard.png)
 
 ## Built With
 
