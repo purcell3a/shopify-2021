@@ -59,8 +59,9 @@ These instructions will get you a copy of the project up and running on your loc
 * once a user has nominated 5 movies they will be notified and the option to submit will render
 * once submitted a user will have an opportunity to see their nominations and share the app via link or twitter
 ![results](static/img/sharesubmissions.png)
-![results](static/img/tweet.png){:height="50%" width="50%"}
-![results](static/img/cc-clipboard.png){:height="50%" width="50%"}
+![results](static/img/tweet.png)
+![results](static/img/cc-clipboard.png)
+<img src="static/img/cc-clipboard.png" width="100" height="100">
 
 ## Built With
 
