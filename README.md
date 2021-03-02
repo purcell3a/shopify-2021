@@ -29,7 +29,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 * Each search result should list at least its title, year of release and a button to nominate that film.
 ##### Movie title and year are shown below the movie poster, the movie can be nominated by hovering over the poster
-![results](static/img/nominate.png){:height="50%" width="50%"}
+![results](static/img/nominate.png)
 
 * Movies in search results can be added and removed from the nomination list.
 ##### Movies can be added by hovering over the movie and selecting the "Nominate" button
@@ -59,9 +59,8 @@ These instructions will get you a copy of the project up and running on your loc
 * once a user has nominated 5 movies they will be notified and the option to submit will render
 * once submitted a user will have an opportunity to see their nominations and share the app via link or twitter
 ![results](static/img/sharesubmissions.png)
-![results](static/img/tweet.png)
-![results](static/img/cc-clipboard.png)
-<img src="static/img/cc-clipboard.png" width="100" height="100">
+
+
 
 ## Built With
 
