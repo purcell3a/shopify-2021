@@ -23,7 +23,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Requirements
 
 * Search OMDB's API and display the results (movies only)
-##### By adding `'t=movie'` to the end of the API url we are able to ensure only the Movie 'type' is returned.
+![results](static/img/results.png)
 
 * Each search result should list at least its title, year of release and a button to nominate that film.
 ##### Movie title and year are shown below the movie poster, the movie can be nominated by hovering over the poster
